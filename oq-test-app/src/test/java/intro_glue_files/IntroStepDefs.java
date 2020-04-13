@@ -1,17 +1,16 @@
 package intro_glue_files;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import com.github.andreashosbach.cucumber_scenarioo_plugin.model.Screenshot;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
@@ -35,6 +34,12 @@ public class IntroStepDefs {
     public void cleanupDriver() {
         webDriver.close();
         webDriver.quit();
+    }
+
+    @AfterStep
+    public void afterStep() {
+        TakesScreenshot scrShot = ((TakesScreenshot) webDriver);
+        Screenshot.save(webDriver.getTitle(), scrShot.getScreenshotAs(OutputType.BYTES));
     }
 
     @Given("a webbrowser")
