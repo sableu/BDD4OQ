@@ -1,4 +1,4 @@
-package intro_glue_files;
+package intro_glue_code;
 
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
