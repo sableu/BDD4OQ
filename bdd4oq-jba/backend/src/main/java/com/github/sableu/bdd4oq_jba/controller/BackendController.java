@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 @RestController()
 @RequestMapping("/api")
 public class BackendController {
@@ -35,9 +37,9 @@ public class BackendController {
 
     @RequestMapping(path = "/participant", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.CREATED)
-    public long addParticipant(@RequestParam("lastName") String lastName, @RequestParam("firstName") String firstName) {
+    public long addParticipant(@RequestParam("lastName") String lastName, @RequestParam("firstName") String firstName, @RequestParam("birthday") String birthday, @RequestParam("gender") String gender ) {
         logger.info("PUT /participant");
-        Participant participant = participantRepository.save(new Participant(firstName, lastName));
+        Participant participant = participantRepository.save(new Participant(firstName, lastName, birthday, gender));
         logger.info(participant.toString() + " added");
         return participant.getId();
     }

@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class Participant {
@@ -13,13 +14,17 @@ public class Participant {
 
     private String firstName;
     private String lastName;
+    private String birthday;
+    private String gender;
 
     protected Participant() {
     }
 
-    public Participant(String firstName, String lastName) {
+    public Participant(String firstName, String lastName, String birthday, String gender) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.birthday = birthday;
+        this.gender = gender;
     }
 
     public Long getId() {
@@ -32,5 +37,21 @@ public class Participant {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }
