@@ -1,5 +1,7 @@
 # Compiled class file
 *.class
+/bdd4oq-jba/frontend/target/
+/bdd4oq-jba/backend/target/
 */target/
 # Log file
 *.log
@@ -20,3 +22,9 @@ hs_err_pid*
 .idea/
 *.iml
 fullreport.html
+
+#copy of frontend in backend resources
+*/backend/src/main/resources/public/
+
+# frontend node stuff
+*/frontend/node*
