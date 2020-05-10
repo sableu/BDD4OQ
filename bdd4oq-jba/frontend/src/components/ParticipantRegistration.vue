@@ -1,12 +1,12 @@
 <template>
     <div class="participant_registration">
         <h1>Participant Registration</h1>
-         <input type="text" v-model="participant.firstName" /> <br/>
-         <input type="text" v-model="participant.lastName" /> <br/>
-         <input type="text" v-model="participant.birthday" /> <br/>
-         <input type="text" v-model="participant.gender" /> <br/>
-        <button @click="registerParticipant()">Register</button>
-        <div v-if="showResponse"> ID {{ id }}</div>
+        <input type="text" id="firstName" v-model="participant.firstName" /> <br/>
+        <input type="text" id="lastName" v-model="participant.lastName" /> <br/>
+        <input type="text" id="birthday" v-model="participant.birthday" /> <br/>
+        <input type="text" id="gender" v-model="participant.gender" /> <br/>
+        <button id="registerParticipant" @click="registerParticipant()">Register</button>
+        <div v-if="showResponse"> Participant registered with ID <span id="registrationId">{{ id }}</span></div>
     </div>
 </template>
 
