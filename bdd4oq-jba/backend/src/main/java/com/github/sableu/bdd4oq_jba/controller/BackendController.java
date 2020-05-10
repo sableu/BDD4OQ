@@ -35,11 +35,11 @@ public class BackendController {
         return participantRepository.findById(id).get();
     }
 
-    @RequestMapping(path = "/participant", method = RequestMethod.PUT)
+    @RequestMapping(path = "/participant", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public long addParticipant(@RequestParam("lastName") String lastName, @RequestParam("firstName") String firstName, @RequestParam("birthday") String birthday, @RequestParam("gender") String gender ) {
+    public long addParticipant(@RequestBody ParticipantDto participantDto) {
         logger.info("PUT /participant");
-        Participant participant = participantRepository.save(new Participant(firstName, lastName, birthday, gender));
+        Participant participant = participantRepository.save(new Participant(participantDto.firstName, participantDto.lastName, participantDto.birthday, participantDto.gender));
         logger.info(participant.toString() + " added");
         return participant.getId();
     }

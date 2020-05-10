@@ -1,20 +1,17 @@
 <template>
   <div id="app">
-  <p>Message: {{msg}}</p>
-    <Hello/>
+    <ParticipantRegistration/>
     <p>An some more text</p>
 </div>
 </template>
 
 <script>
-import Hello from './components/Hello.vue'
+import ParticipantRegistration from './components/ParticipantRegistration.vue'
 export default {
   name: 'app',
-  components: { Hello },
+  components: { ParticipantRegistration },
   data () {
-    return {
-      msg: 'Hello to Vue.js!'
-    }
+    return {}
   }
 }
 </script>

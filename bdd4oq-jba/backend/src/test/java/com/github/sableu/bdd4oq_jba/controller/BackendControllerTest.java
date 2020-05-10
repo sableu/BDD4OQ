@@ -4,6 +4,7 @@ import com.github.sableu.bdd4oq_jba.Bdd4oqJbApplication;
 import com.github.sableu.bdd4oq_jba.domain.Participant;
 import com.github.sableu.bdd4oq_jba.repository.ParticipantRepository;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSender;
@@ -62,14 +63,17 @@ public class BackendControllerTest {
     @Test
     public void addParticipant() {
 
-        RequestSpecification request = given();
-        request.param("lastName", "Hosbach");
-        request.param("firstName", "Andreas");
-        request.param("birthday", "19.3.1975");
-        request.param("gender", "male");
+        ParticipantDto participantDto = new ParticipantDto();
+        participantDto.lastName = "Hosbach";
+        participantDto.firstName = "Andreas";
+        participantDto.birthday = "19.03.1975";
+        participantDto.gender = "male";
 
+        RequestSpecification request = given();
+        request.contentType(ContentType.JSON);
+        request.body(participantDto);
         RequestSender sender = request.when();
-        Response response = sender.put("/api/participant");
+        Response response = sender.post("/api/participant");
 
         ValidatableResponse vResponse = response.then();
         vResponse.statusCode(HttpStatus.SC_CREATED);
@@ -77,10 +81,10 @@ public class BackendControllerTest {
         Integer id = vResponse.extract().as(Integer.class);
         Participant andreas = participantRepository.findById(id);
 
-        assertThat(andreas.getFirstName(), is("Andreas"));
-        assertThat(andreas.getLastName(), is("Hosbach"));
-        assertThat(andreas.getBirthday(), is("19.3.1975"));
-        assertThat(andreas.getGender(), is("male"));
+        assertThat(andreas.getLastName(), is(participantDto.lastName));
+        assertThat(andreas.getFirstName(), is(participantDto.firstName));
+        assertThat(andreas.getBirthday(), is(participantDto.birthday));
+        assertThat(andreas.getGender(), is(participantDto.gender));
     }
 
     @Test
