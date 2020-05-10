@@ -8,7 +8,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/intro_feature_files",
         glue = "intro_glue_code",
         strict = true,
-        plugin = "com.github.andreashosbach.cucumber_scenarioo_plugin.CucumberScenariooPlugin:target/scenarioo"
+        plugin = "com.github.andreashosbach.cucumber_scenarioo_plugin.CucumberScenariooPlugin:target/scenarioo",
+        tags = "not @Ignore"
 )
 public class IntroTestRunner {
 }
