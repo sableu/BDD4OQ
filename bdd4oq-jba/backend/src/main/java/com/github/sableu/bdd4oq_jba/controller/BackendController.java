@@ -30,17 +30,21 @@ public class BackendController {
 
     @RequestMapping(path = "/participant/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public Participant getParticipantById(@PathVariable("id") Long id) {
+    public ParticipantDto getParticipantById(@PathVariable("id") Long id) {
         logger.info("GET /participant/" + id);
-        return participantRepository.findById(id).get();
+        ParticipantDto participantDto = ParticipantDto.fromParticipant(participantRepository.findById(id).get());
+        return  participantDto;
     }
 
     @RequestMapping(path = "/participant", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public long addParticipant(@RequestBody ParticipantDto participantDto) {
         logger.info("PUT /participant");
-        Participant participant = participantRepository.save(new Participant(participantDto.firstName, participantDto.lastName, participantDto.birthday, participantDto.gender));
+        Participant participant = participantRepository.save(participantDto.toParticipant());
         logger.info(participant.toString() + " added");
         return participant.getId();
     }
+
+    //TODO  GET /participant/{id}/measurement
+    //TODO POST /participant/{id}/measurement
 }

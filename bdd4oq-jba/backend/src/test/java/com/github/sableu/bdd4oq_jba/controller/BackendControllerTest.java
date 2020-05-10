@@ -97,11 +97,11 @@ public class BackendControllerTest {
         Response response = sender.get("/api/participant/" + peter.getId());
         ValidatableResponse vResponse = response.then();
         vResponse.statusCode(HttpStatus.SC_OK);
-        Participant maybePeter = vResponse.extract().as(Participant.class);
+        ParticipantDto maybePeter = vResponse.extract().as(ParticipantDto.class);
 
-        assertThat(maybePeter.getFirstName(), is(peter.getFirstName()));
-        assertThat(maybePeter.getLastName(), is(peter.getLastName()));
-        assertThat(maybePeter.getBirthday(), is(peter.getBirthday()));
-        assertThat(maybePeter.getGender(), is(peter.getGender()));
+        assertThat(maybePeter.firstName, is(peter.getFirstName()));
+        assertThat(maybePeter.lastName, is(peter.getLastName()));
+        assertThat(maybePeter.birthday, is(peter.getBirthday()));
+        assertThat(maybePeter.gender, is(peter.getGender()));
     }
 }
