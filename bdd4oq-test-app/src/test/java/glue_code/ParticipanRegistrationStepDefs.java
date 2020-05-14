@@ -10,6 +10,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
+import io.restassured.specification.RequestSpecification;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.restassured.response.Response;
@@ -24,11 +25,12 @@ import static io.restassured.RestAssured.when;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+
+
 public class ParticipanRegistrationStepDefs {
 
     private WebDriver webDriver;
-
-    private ParticipantDto participant;
+    private ParticipantDto peter;
 
     @Before
     public void setupDriver() {
@@ -57,46 +59,45 @@ public class ParticipanRegistrationStepDefs {
     }
 
 
-/*
-    Given A participant Peter
-    And Peter has first name "Peter", last name "Parker", birthday "08.05.2020" and is "male"
-    And Peter is not registered yet
-    And Patricia wants to register Peter
-    When Patricia enters Peters data
-    Then Peter can be found in the system
+
+    @Given("A participant Peter")
+    public void aParticipantPeter(){
+        peter = new ParticipantDto();
+}
+
+    @And("Peter has first name {string}, last name {string}, birthday {string} and is {string}")
+    public void peterHasFirstNameLastNameBirthdayAndIs(String firstName, String lastName, String birthday, String gender){
+        peter.firstName = firstName;
+        peter.lastName = lastName;
+        peter.birthday = birthday;
+        peter.gender = gender;
+    }
 
 
-    */
-
-
-    @Given("Peter is not registered yet")
-    public void peterIsNotRegisteredYet() {
-        /*
-        RequestSender sender = when();
-        Response response = sender.get("/api/participant/" + peter.getId());
+    @And("Peter is not registered yet")
+    public void peterIsNotRegisteredYet(){
+        RequestSpecification request = given();
+        request.param("firstName", peter.getFirstName());
+        request.param("lastName", peter.getLastName());
+        request.param("birthday", peter.getBirthday());
+        RequestSender sender = request.when();
+        Response response = sender.get("/api/participant/" + peter.getFirstName() + peter.getLastName() + peter.getBirthday());
         ValidatableResponse vResponse = response.then();
         vResponse.statusCode(404);
-         */
     }
+
 
     @And("Patricia wants to register Peter")
     public void patriciaWantsToRegisterPeter() {
         webDriver.navigate().to("http://localhost:8098/");
     }
 
-    @When("Patricia enters {string}, {string}, {string}, and {string} in the respective fields")
-    public void patriciaEntersAndInTheRespectiveFields(String firstName, String lastName, String birthday, String gender){
-
-        participant = new ParticipantDto();
-        participant.firstName = firstName;
-        participant.lastName = lastName;
-        participant.birthday = birthday;
-        participant.gender = gender;
-
-        webDriver.findElement(By.id("firstName")).sendKeys(participant.firstName);
-        webDriver.findElement(By.id("lastName")).sendKeys(participant.lastName);
-        webDriver.findElement(By.id("birthday")).sendKeys(participant.birthday);
-        webDriver.findElement(By.id("gender")).sendKeys(participant.gender);
+    @When("Patricia enters Peters data")
+    public void patriciaEntersPetersData() {
+        webDriver.findElement(By.id("firstName")).sendKeys(peter.firstName);
+        webDriver.findElement(By.id("lastName")).sendKeys(peter.lastName);
+        webDriver.findElement(By.id("birthday")).sendKeys(peter.birthday);
+        webDriver.findElement(By.id("gender")).sendKeys(peter.gender);
         webDriver.findElement(By.id("registerParticipant")).click();
     }
 
@@ -108,11 +109,12 @@ public class ParticipanRegistrationStepDefs {
         ValidatableResponse vResponse = response.then();
         vResponse.statusCode(200);
         ParticipantDto maybePeter = vResponse.extract().as(ParticipantDto.class);
-        assertThat(maybePeter.firstName, is(participant.firstName));
-        assertThat(maybePeter.lastName, is(participant.lastName));
-        assertThat(maybePeter.birthday, is(participant.birthday));
-        assertThat(maybePeter.gender, is(participant.gender));
+        assertThat(maybePeter.firstName, is(peter.firstName));
+        assertThat(maybePeter.lastName, is(peter.lastName));
+        assertThat(maybePeter.birthday, is(peter.birthday));
+        assertThat(maybePeter.gender, is(peter.gender));
     }
+
 
 
 }

@@ -20,6 +20,8 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.net.ResponseCache;
+import java.util.ArrayList;
+import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
@@ -78,8 +80,8 @@ public class BackendControllerTest {
         ValidatableResponse vResponse = response.then();
         vResponse.statusCode(HttpStatus.SC_CREATED);
 
-        Integer id = vResponse.extract().as(Integer.class);
-        Participant andreas = participantRepository.findById(id);
+        Long id = vResponse.extract().as(Long.class);
+        Participant andreas = participantRepository.findById(id).get();
 
         assertThat(andreas.getLastName(), is(participantDto.lastName));
         assertThat(andreas.getFirstName(), is(participantDto.firstName));
@@ -88,7 +90,7 @@ public class BackendControllerTest {
     }
 
     @Test
-    public void getParticipant() {
+    public void getParticipantById() {
 
         // add to db
         Participant peter = participantRepository.save(new Participant("Peter", "Parker", "03.05.1995", "male"));
@@ -104,4 +106,54 @@ public class BackendControllerTest {
         assertThat(maybePeter.birthday, is(peter.getBirthday()));
         assertThat(maybePeter.gender, is(peter.getGender()));
     }
+
+    @Test
+    public void getParticipantByIdNotFound() {
+        RequestSender sender = when();
+        Response response = sender.get("/api/participant/" + 100);
+        ValidatableResponse vResponse = response.then();
+        vResponse.statusCode(HttpStatus.SC_NOT_FOUND);
+    }
+
+    @Test
+    public void getParticipantByAttributes() {
+
+        // add to db
+        Participant peter = participantRepository.save(new Participant("Peter", "Parker", "03.05.1995", "male"));
+
+        // prepare http-request
+        RequestSpecification request = given();
+        request.param("firstName", peter.getFirstName());
+        request.param("lastName", peter.getLastName());
+        request.param("birthday", peter.getBirthday());
+
+        // send http-request
+        RequestSender sender = request.when();
+        Response response = sender.get("/api/participant/search");
+
+        // evaluate response
+        ValidatableResponse vResponse = response.then();
+        vResponse.statusCode(HttpStatus.SC_OK);
+        List<ParticipantDto> maybePeters = vResponse.extract().body().jsonPath().getList(".", ParticipantDto.class);
+        assertThat(maybePeters.size(), is(1));
+        ParticipantDto maybePeter = maybePeters.get(0);
+        assertThat(maybePeter.firstName, is(peter.getFirstName()));
+        assertThat(maybePeter.lastName, is(peter.getLastName()));
+        assertThat(maybePeter.birthday, is(peter.getBirthday()));
+    }
+
+    @Test
+    public void participantByAttributesNotFound() {
+
+        RequestSpecification request = given();
+        request.param("firstName", "Tony");
+        request.param("lastName","Stark");
+        request.param("birthday", "29.05.1970");
+        RequestSender sender = request.when();
+        Response response = sender.get("/api/participant/search");
+        ValidatableResponse vResponse = response.then();
+        vResponse.statusCode(HttpStatus.SC_NOT_FOUND);
+    }
+
+
 }

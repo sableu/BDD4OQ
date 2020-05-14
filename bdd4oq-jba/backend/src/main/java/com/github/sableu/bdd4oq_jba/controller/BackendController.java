@@ -9,8 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController()
 @RequestMapping("/api")
@@ -36,15 +38,32 @@ public class BackendController {
         logger.info("GET /participant");
         List<ParticipantDto> participants = new ArrayList<>();
         participantRepository.findAll().forEach(p -> participants.add(ParticipantDto.fromParticipant(p)));
-        return  participants;
+        return participants;
     }
 
     @RequestMapping(path = "/participant/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public ParticipantDto getParticipantById(@PathVariable("id") Long id) {
         logger.info("GET /participant/" + id);
-        ParticipantDto participantDto = ParticipantDto.fromParticipant(participantRepository.findById(id).get());
-        return  participantDto;
+        ParticipantDto participantDto = ParticipantDto.fromParticipant(participantRepository.findById(id).orElseThrow(() -> new ParticipantNotFoundException("Participant not found")));
+        return participantDto;
+    }
+
+    @RequestMapping(path = "/participant/search", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public List<ParticipantDto> getParticipantByAttributes(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName, @RequestParam("birthday") String birthday) {
+        logger.info("GET /participant/search" + firstName + "_" + lastName + "_" + birthday);
+
+        Collection<Participant> participants = participantRepository.findByAttributes(firstName, lastName, birthday);
+
+        if (participants.isEmpty()) {
+            logger.info("Participant not found " + firstName + "_" + lastName + "_" + birthday);
+            throw new ParticipantNotFoundException("The participant requested by attributes could not be found");
+        }
+
+        logger.info(participants.size() + " Participant(s) found with " + firstName + "_" + lastName + "_" + birthday);
+        List<ParticipantDto> participantDtos = participants.stream().map(p -> ParticipantDto.fromParticipant(p)).collect(Collectors.toList());
+        return participantDtos;
     }
 
     @RequestMapping(path = "/participant", method = RequestMethod.POST)
