@@ -11,6 +11,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
+import org.apache.http.HttpStatus;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.restassured.response.Response;
@@ -81,9 +82,20 @@ public class ParticipanRegistrationStepDefs {
         request.param("lastName", peter.getLastName());
         request.param("birthday", peter.getBirthday());
         RequestSender sender = request.when();
-        Response response = sender.get("/api/participant/" + peter.getFirstName() + peter.getLastName() + peter.getBirthday());
+        Response response = sender.get("/api/participant/search");
         ValidatableResponse vResponse = response.then();
         vResponse.statusCode(404);
+//        assertThat(vResponse.extract().statusCode(), is(404));
+ /*  //alternative instead of giving back '404', delete Peter if he exists --> Todo
+        if(vResponse.extract().statusCode() == HttpStatus.SC_OK){
+            ParticipantDto peter ;
+            RequestSender deleteSender = when();
+            Response deleteResponse = sender.get("/api/participant/" + peter.get);
+            ValidatableResponse vDeleteResponse = deleteResponse.then();
+            vDeleteResponse.statusCode(HttpStatus.SC_OK);
+        }
+ */
+
     }
 
 

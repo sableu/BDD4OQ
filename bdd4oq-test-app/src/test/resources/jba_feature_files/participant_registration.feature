@@ -23,10 +23,9 @@ Feature: Registration of a participant
   To register a new participant who has no entry in the DB yet, the first name, family name, gender and birth date needs to be entered in order to successfully register the new participatn.
   This represents the simplest happy path.
 
-  Scenario: Registration of Peter
 	  Given A participant Peter
 	  And Peter has first name "Peter", last name "Parker", birthday "08.05.2020" and is "male"
-	  # And Peter is not registered yet
+	  And Peter is not registered yet
 	  And Patricia wants to register Peter
 	  When Patricia enters Peters data
 	  Then Peter can be found in the system
