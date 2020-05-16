@@ -77,6 +77,7 @@ public class ParticipanRegistrationStepDefs {
 
     @And("Peter is not registered yet")
     public void peterIsNotRegisteredYet(){
+        webDriver.navigate().to("http://localhost:8098/");
         RequestSpecification request = given();
         request.param("firstName", peter.getFirstName());
         request.param("lastName", peter.getLastName());
@@ -101,7 +102,8 @@ public class ParticipanRegistrationStepDefs {
 
     @And("Patricia wants to register Peter")
     public void patriciaWantsToRegisterPeter() {
-        webDriver.navigate().to("http://localhost:8098/");
+        webDriver.findElement(By.linkText("Participant Registration")).click();
+        //webDriver.navigate().to("http://localhost:8098/");
     }
 
     @When("Patricia enters Peter's data")
@@ -112,13 +114,13 @@ public class ParticipanRegistrationStepDefs {
         webDriver.findElement(By.id("gender")).sendKeys(peter.gender);
     }
 
-    @And ("wants to register them")
-    public void wantsToRegisterThem(){
+    @And ("registers them")
+    public void registersThem(){
         webDriver.findElement(By.id("registerParticipant")).click();
     }
 
     @Then("Peter should be found in the system")
-    public void peterCanBeFoundInTheSystem(){
+    public void peterShouldBeFoundInTheSystem(){
         long id = Long.parseLong(webDriver.findElement(By.id("registrationId")).getText());
         RequestSender sender = when();
         Response response = sender.get("/api/participant/" + id);

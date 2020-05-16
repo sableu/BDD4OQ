@@ -1,17 +1,11 @@
 <template>
-  <div id="app">
-    <ParticipantRegistration/>
-    <p>An some more text</p>
-</div>
+    <div id="app">
+        <b-nav id ="nav">
+            <b-nav-item><router-link to="/">Home</router-link></b-nav-item>
+            <b-nav-item><router-link to="/"><router-link to="/participantRegistration">Participant Registration</router-link></router-link></b-nav-item>
+        </b-nav>
+        <div style="margin-left:45px; margin-right:45px; margin-top:20px">
+            <router-view/>
+        </div>
+    </div>
 </template>
-
-<script>
-import ParticipantRegistration from './components/ParticipantRegistration.vue'
-export default {
-  name: 'app',
-  components: { ParticipantRegistration },
-  data () {
-    return {}
-  }
-}
-</script>

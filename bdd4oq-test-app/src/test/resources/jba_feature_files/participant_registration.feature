@@ -9,7 +9,7 @@ Feature: Registration of a participant
 
   Scenario: Registration of an unknown participant
 
-  To register a new participant who has no entry in the DB yet, the first name, family name, gender and birth date needs to be entered in order to successfully register the new participatn.
+  To register a new participant who has no entry in the DB yet, the first name, family name, gender and birth date needs to be entered in order to successfully register the new participant.
   This represents the simplest happy path.
 
     Given A participant Peter
@@ -17,7 +17,7 @@ Feature: Registration of a participant
     And Peter is not registered yet
     And Patricia wants to register Peter
     When Patricia enters Peter's data
-    And wants to register them
+    And registers them
     Then Peter should be found in the system
 
 
