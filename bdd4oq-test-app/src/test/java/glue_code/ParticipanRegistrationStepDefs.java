@@ -104,16 +104,20 @@ public class ParticipanRegistrationStepDefs {
         webDriver.navigate().to("http://localhost:8098/");
     }
 
-    @When("Patricia enters Peters data")
+    @When("Patricia enters Peter's data")
     public void patriciaEntersPetersData() {
         webDriver.findElement(By.id("firstName")).sendKeys(peter.firstName);
         webDriver.findElement(By.id("lastName")).sendKeys(peter.lastName);
         webDriver.findElement(By.id("birthday")).sendKeys(peter.birthday);
         webDriver.findElement(By.id("gender")).sendKeys(peter.gender);
+    }
+
+    @And ("wants to register them")
+    public void wantsToRegisterThem(){
         webDriver.findElement(By.id("registerParticipant")).click();
     }
 
-    @Then("Peter can be found in the system")
+    @Then("Peter should be found in the system")
     public void peterCanBeFoundInTheSystem(){
         long id = Long.parseLong(webDriver.findElement(By.id("registrationId")).getText());
         RequestSender sender = when();
