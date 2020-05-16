@@ -11,7 +11,7 @@
         <li>Evelyne Daniel</li>
         <li>Stephan Jüngling</li>
         </ul>
-        <p>Sponsered by:</p>
+        <p>Sponsored by:</p>
         <ul>
                  <li><a href="https://www.wega-it.com/en/">wega Informatik AG</a></li>
                  <li><a href="https://www.fhnw.ch/en/about-fhnw/locations/campus-olten">Fachhochschule Nordwestschweiz</a></li>
