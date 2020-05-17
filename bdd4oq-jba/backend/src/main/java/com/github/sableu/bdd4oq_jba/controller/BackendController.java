@@ -1,7 +1,9 @@
 package com.github.sableu.bdd4oq_jba.controller;
 
 import com.github.sableu.bdd4oq_jba.domain.Participant;
+import com.github.sableu.bdd4oq_jba.domain.WeightEntry;
 import com.github.sableu.bdd4oq_jba.repository.ParticipantRepository;
+import com.github.sableu.bdd4oq_jba.repository.WeightEntryRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,6 +23,9 @@ public class BackendController {
 
     @Autowired
     private ParticipantRepository participantRepository;
+
+    @Autowired
+    private WeightEntryRepository weightEntryRepository;
 
     public static final String HELLO_TEXT = "Hello from Spring Boot Backend for ";
 
@@ -69,10 +73,22 @@ public class BackendController {
     @RequestMapping(path = "/participant", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public long addParticipant(@RequestBody ParticipantDto participantDto) {
-        logger.info("PUT /participant");
+        logger.info("POST /participant");
         Participant participant = participantRepository.save(participantDto.toParticipant());
         logger.info(participant.toString() + " added");
         return participant.getId();
+    }
+
+    @RequestMapping(path = "/participant/{participantId}/weights/baseline", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public long addPWeight(@PathVariable("participantId") Long participantId, @RequestBody WeightEntryDto weightEntryDto) {
+        logger.info("POST /participant/"+participantId+"/weights/baseline");
+        if(!weightEntryRepository.findByParticipantId(participantId).isEmpty()){
+            logger.info("");
+            throw new BaselineMeasurementAlreadyExistsException("Baseline measurement already exists");
+        }
+        WeightEntry weightEntry = weightEntryRepository.save(weightEntryDto.toWeightEntry(participantId));
+        return weightEntry.getId();
     }
 
     //TODO  GET /participant/{id}/measurement

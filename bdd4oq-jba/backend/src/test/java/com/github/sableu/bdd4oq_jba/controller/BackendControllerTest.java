@@ -2,7 +2,9 @@ package com.github.sableu.bdd4oq_jba.controller;
 
 import com.github.sableu.bdd4oq_jba.Bdd4oqJbApplication;
 import com.github.sableu.bdd4oq_jba.domain.Participant;
+import com.github.sableu.bdd4oq_jba.domain.WeightEntry;
 import com.github.sableu.bdd4oq_jba.repository.ParticipantRepository;
+import com.github.sableu.bdd4oq_jba.repository.WeightEntryRepository;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -42,6 +44,9 @@ public class BackendControllerTest {
     @Autowired
     private ParticipantRepository participantRepository;
 
+    @Autowired
+    private WeightEntryRepository weightEntryRepository;
+
     @Before
     public void init() {
         RestAssured.baseURI = "http://localhost";
@@ -55,11 +60,11 @@ public class BackendControllerTest {
 
     @Test
     public void saysHello() {
-        RequestSender sender =when();
-                Response response = sender.get("/api/hello/Andreas");
-                ValidatableResponse vResponse = response.then();
-                vResponse.statusCode(HttpStatus.SC_OK);
-                vResponse.assertThat().body(is(equalTo(BackendController.HELLO_TEXT + "Andreas")));
+        RequestSender sender = when();
+        Response response = sender.get("/api/hello/Andreas");
+        ValidatableResponse vResponse = response.then();
+        vResponse.statusCode(HttpStatus.SC_OK);
+        vResponse.assertThat().body(is(equalTo(BackendController.HELLO_TEXT + "Andreas")));
     }
 
     @Test
@@ -147,7 +152,7 @@ public class BackendControllerTest {
 
         RequestSpecification request = given();
         request.param("firstName", "Tony");
-        request.param("lastName","Stark");
+        request.param("lastName", "Stark");
         request.param("birthday", "29.05.1970");
         RequestSender sender = request.when();
         Response response = sender.get("/api/participant/search");
@@ -155,5 +160,50 @@ public class BackendControllerTest {
         vResponse.statusCode(HttpStatus.SC_NOT_FOUND);
     }
 
+    @Test
+    public void setBaselineWeightMeasurement() {
+        Participant petra = participantRepository.save(new Participant("Petra", "Parker", "03.05.1995", "female"));
 
+        WeightEntryDto weightEntryDto = new WeightEntryDto();
+        weightEntryDto.weight = 55.5;
+        weightEntryDto.dateTime = "15.5.20, 4:30pm";
+        weightEntryDto.comment = "a comment";
+
+        RequestSpecification request = given();
+        request.contentType(ContentType.JSON);
+        request.body(weightEntryDto);
+        RequestSender sender = request.when();
+        Response response = sender.post("/api/participant/" + petra.getId() + "/weights/baseline");
+
+        ValidatableResponse vResponse = response.then();
+        vResponse.statusCode(HttpStatus.SC_CREATED);
+
+        Long id = vResponse.extract().as(Long.class);
+        WeightEntry baselineMeasurement = weightEntryRepository.findById(id).get();
+
+        assertThat(baselineMeasurement.getWeight(), is(weightEntryDto.weight));
+        assertThat(baselineMeasurement.getDateTime(), is(weightEntryDto.dateTime));
+        assertThat(baselineMeasurement.getComment(), is(weightEntryDto.comment));
+    }
+
+    @Test
+    public void setBaselineWeightMeasurementDeclined() {
+        Participant piotr = participantRepository.save(new Participant("Piotr", "Parker", "03.05.1995", "male"));
+
+        WeightEntry firstEntry = weightEntryRepository.save(new WeightEntry(60d, "5.5.20, 4:30pm", "no comment", piotr.getId()));
+
+        WeightEntryDto weightEntryDto = new WeightEntryDto();
+        weightEntryDto.weight = 55.5;
+        weightEntryDto.dateTime = "15.5.20, 4:30pm";
+        weightEntryDto.comment = "a comment";
+
+        RequestSpecification request = given();
+        request.contentType(ContentType.JSON);
+        request.body(weightEntryDto);
+        RequestSender sender = request.when();
+        Response response = sender.post("/api/participant/" + piotr.getId() + "/weights/baseline");
+
+        ValidatableResponse vResponse = response.then();
+        vResponse.statusCode(HttpStatus.SC_FORBIDDEN);
+    }
 }
