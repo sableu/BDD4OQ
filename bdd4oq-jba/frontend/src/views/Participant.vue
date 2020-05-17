@@ -1,0 +1,108 @@
+<template>
+    <div class="participant">
+        <h1>Participant</h1>
+        <b-container fluid>
+            <b-row>
+                <b-col sm="3"> <label>ID</label> </b-col>
+                <b-col sm="9"> {{participantId}} </b-col>
+                <b-col sm="3"> <label>First Name</label> </b-col>
+                <b-col sm="9"> {{participant.firstName}} </b-col>
+                <b-col sm="3"> <label>Last Name</label> </b-col>
+                <b-col sm="9"> {{participant.lastName}} </b-col>
+                <b-col sm="3"> <label>Birthday</label> </b-col>
+                <b-col sm="9"> {{participant.birthday}} </b-col>
+                <b-col sm="3"> <label>Gender</label> </b-col>
+                <b-col sm="9"> {{participant.gender}} </b-col>
+            </b-row>
+        </b-container>
+         <b-alert :show="showParticipantError" variant="danger">{{participantErrorMsg}}</b-alert>
+        <h3>Baseline Measurement</h3>
+        <b-container fluid>
+            <b-row>
+                <b-col sm="3"> <label for="weight">Weight in kg</label> </b-col>
+                <b-col sm="3"> <label for="dateTime">Date and Time</label> </b-col>
+                <b-col sm="3"> <label for="comment">Comment</label> </b-col>
+            </b-row>
+            <b-row>
+                <b-col sm="3"> <b-form-input id="weight" v-model="baselineWeightEntry.weight"/> </b-col>
+                <b-col sm="3"> <b-form-input id="dateTime" v-model="baselineWeightEntry.dateTime"/> </b-col>
+                <b-col sm="3"> <b-form-input id="comment" v-model="baselineWeightEntry.comment"/> </b-col>
+            </b-row>
+        </b-container>
+        <b-button variant="primary" id="addWeight" @click="setBaselineMeasurement()">Set</b-button>
+         <b-alert :show="showBaselineSuccess" variant="success">Created baseline with ID: <span id="baselineId">{{baselineMeasurementId}}</span></b-alert>
+         <b-alert :show="showBaselineWarning" variant="warning">{{baselineWarningMsg}}</b-alert>
+    </div>
+</template>
+
+<script>
+    import  api from '../scripts/backend-api.js'
+    export default {
+        name: 'participant',
+        data()  {
+            return {
+                participantId: -1,
+                participant: {
+                    firstName: '',
+                    lastName:'',
+                    birthday:'',
+                    gender:''
+                },
+                baselineWeightEntry: {
+                    weight: '',
+                    dateTime: '',
+                    comment: ''
+                },
+                participantErrorMsg : '',
+                showParticipantError: false,
+                baselineWarningMsg: '',
+                showBaselineWarning: false,
+                baselineMeasurementId: -1,
+                showBaselineSuccess: false
+            }
+        },
+        // ToDo this.comment
+        mounted(){
+            this.fetchData();
+        },
+        watch:{
+            '$route':'fetchData'
+        },
+        methods: {
+            fetchData(){
+                this.showParticipantError = false;
+                this.participantId=this.$route.params.participantId;
+                api.getParticipant(this.participantId).then(response => {
+                    console.log(response);
+                    this.participant.firstName = response.data.firstName;
+                    this.participant.lastName = response.data.lastName;
+                    this.participant.birthday = response.data.birthday;
+                    this.participant.gender = response.data.gender;
+                })
+                .catch(e => {
+                    console.log(e);
+                    this.participant.firstName = '';
+                    this.participant.lastName = '';
+                    this.participant.birthday = '';
+                    this.participant.gender = '';
+                    this.participantErrorMsg = 'Could not load participant';
+                    this.showParticipantError = true;
+                })
+            },
+            setBaselineMeasurement(){
+                this.showBaselineWarning = false;
+                this.showBaselineSuccess = false;
+                api.setBaselineMeasurement(this.baselineWeightEntry, this.participantId).then(response => {
+                    console.log(response);
+                    this.baselineMeasurementId = response.data;
+                    this.showBaselineSuccess = true;
+                })
+                .catch(e => {
+                    console.log(e);
+                    this.baselineWarningMsg = 'Failed to set baseline';
+                    this.showBaselineWarning = true;
+                })
+            }
+        }
+    }
+</script>

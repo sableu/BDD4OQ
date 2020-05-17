@@ -1,73 +1,41 @@
 package glue_code;
 
-import com.github.andreashosbach.cucumber_scenarioo_plugin.model.Screenshot;
 import glue_code.backend_api.ParticipantDto;
-import io.cucumber.java.After;
-import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
-import org.apache.http.HttpStatus;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSender;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
+
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
 
 
 public class ParticipanRegistrationStepDefs {
 
-    private WebDriver webDriver;
-    private ParticipantDto peter;
+   private ParticipantDto peter;
+   private WebDriver webDriver;
 
-    @Before
-    public void setupDriver() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");
-        webDriver = new ChromeDriver();
-
-        webDriver.manage().window().setSize(new Dimension(1024, 768));
-
-        webDriver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-        webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-        RestAssured.baseURI = "http://localhost";
-        RestAssured.port = 8098;
-    }
-
-    @After
-    public void cleanupDriver() {
-        webDriver.close();
-        webDriver.quit();
-    }
-
-    @AfterStep
-    public void afterStep() {
-        TakesScreenshot scrShot = ((TakesScreenshot) webDriver);
-        Screenshot.save(webDriver.getTitle(), scrShot.getScreenshotAs(OutputType.BYTES));
-    }
-
-
+   @Before
+   public void before(){
+       webDriver = TestContext.getInstance().getWebDriver();
+   }
 
     @Given("A participant Peter")
-    public void aParticipantPeter(){
+    public void aParticipantPeter() {
         peter = new ParticipantDto();
-}
+    }
 
     @And("Peter has first name {string}, last name {string}, birthday {string} and is {string}")
-    public void peterHasFirstNameLastNameBirthdayAndIs(String firstName, String lastName, String birthday, String gender){
+    public void peterHasFirstNameLastNameBirthdayAndIs(String firstName, String lastName, String birthday, String gender) {
         peter.firstName = firstName;
         peter.lastName = lastName;
         peter.birthday = birthday;
@@ -76,7 +44,7 @@ public class ParticipanRegistrationStepDefs {
 
 
     @And("Peter is not registered yet")
-    public void peterIsNotRegisteredYet(){
+    public void peterIsNotRegisteredYet() {
         webDriver.navigate().to("http://localhost:8098/");
         RequestSpecification request = given();
         request.param("firstName", peter.getFirstName());
@@ -114,13 +82,13 @@ public class ParticipanRegistrationStepDefs {
         webDriver.findElement(By.id("gender")).sendKeys(peter.gender);
     }
 
-    @And ("registers them")
-    public void registersThem(){
+    @And("registers them")
+    public void registersThem() {
         webDriver.findElement(By.id("registerParticipant")).click();
     }
 
     @Then("Peter should be found in the system")
-    public void peterShouldBeFoundInTheSystem(){
+    public void peterShouldBeFoundInTheSystem() {
         long id = Long.parseLong(webDriver.findElement(By.id("registrationId")).getText());
         RequestSender sender = when();
         Response response = sender.get("/api/participant/" + id);
@@ -131,8 +99,9 @@ public class ParticipanRegistrationStepDefs {
         assertThat(maybePeter.lastName, is(peter.lastName));
         assertThat(maybePeter.birthday, is(peter.birthday));
         assertThat(maybePeter.gender, is(peter.gender));
-    }
 
+        webDriver.navigate().to("http://localhost:8098/#/participant/" + id);
+    }
 
 
 }

@@ -8,12 +8,12 @@ Feature: Registration of weight measurements of a participant
 
   Scenario: Registration of the baseline measurement of a participant
 
-  To register the baseline weight measurement, .
+  To register the baseline weight measurement, Patricia, the nurse, wants to set the Ava's baseline measurement by entering the weight, the date and time and a comment.
   This represents the simplest happy path.
 
-    Given Peter with first name "Peter", last name "Parker" and birthday "08.05.2002" is registered
-    And Peter has no weight measurement entry yet
-    And Patricia wants to register Peter's baseline weight measurement
-    When Patricia enters "78,5"kg in the weight field, "15.5.20, 8:15am" in the time field and "measurement done right after breakfast" in the comment field
-    And she wants to save these entries
-    Then Peter's baseline weight entry should be found in the system
+    Given Ava with first name "Ava", last name "Johnson", birthday "01.01.1989", gender "female" is registered
+    #And Ava has no weight measurement entry yet
+    And Patricia wants to register Ava's baseline weight measurement
+    When Patricia enters 68,5 kg in the weight field, "15.5.20, 8:15am" in the time field and "measurement done right after breakfast" in the comment field
+    And she saves these entries
+    Then Ava's baseline weight entry should be found in the system

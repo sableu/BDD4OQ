@@ -14,7 +14,7 @@
             </b-row>
         </b-container>
         <b-button variant="primary" id="registerParticipant" @click="registerParticipant()">Register</b-button>
-        <div v-if="showResponse"> Participant registered with ID <span id="registrationId">{{ id }}</span></div>
+        <b-alert :show="showResponse" variant="success">Participant registered with ID <span id="registrationId">{{ id }}</span></b-alert>
     </div>
 </template>
 

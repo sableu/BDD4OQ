@@ -16,5 +16,18 @@ export default {
         }
         console.log(data)
         return AXIOS.post('/participant', data);
-    }
+    },
+    getParticipant(participantId) {
+            return AXIOS.get('/participant/'+participantId);
+    },
+    setBaselineMeasurement(baselineWeightEntry, participantId) {
+            var data = {
+                weight: baselineWeightEntry.weight,
+                dateTime: baselineWeightEntry.dateTime,
+                comment: baselineWeightEntry.comment
+            }
+            console.log(data)
+            return AXIOS.post('/participant/'+ participantId+'/weights/baseline', data);
+        }
+
 }
