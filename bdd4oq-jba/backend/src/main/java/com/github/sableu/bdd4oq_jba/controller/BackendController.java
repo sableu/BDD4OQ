@@ -84,7 +84,7 @@ public class BackendController {
     public long addPWeight(@PathVariable("participantId") Long participantId, @RequestBody WeightEntryDto weightEntryDto) {
         logger.info("POST /participant/"+participantId+"/weights/baseline");
         if(!weightEntryRepository.findByParticipantId(participantId).isEmpty()){
-            logger.info("");
+            logger.info("Already a baseline present refusing new values");
             throw new BaselineMeasurementAlreadyExistsException("Baseline measurement already exists");
         }
         WeightEntry weightEntry = weightEntryRepository.save(weightEntryDto.toWeightEntry(participantId));

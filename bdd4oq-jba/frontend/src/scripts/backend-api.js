@@ -20,6 +20,9 @@ export default {
     getParticipant(participantId) {
             return AXIOS.get('/participant/'+participantId);
     },
+    getParticipants() {
+            return AXIOS.get('/participant');
+    },
     setBaselineMeasurement(baselineWeightEntry, participantId) {
             var data = {
                 weight: baselineWeightEntry.weight,

@@ -28,8 +28,7 @@ import java.util.List;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(
@@ -110,6 +109,39 @@ public class BackendControllerTest {
         assertThat(maybePeter.lastName, is(peter.getLastName()));
         assertThat(maybePeter.birthday, is(peter.getBirthday()));
         assertThat(maybePeter.gender, is(peter.getGender()));
+    }
+
+    @Test
+    public void getParticipants() {
+
+        // add to db
+        Participant steve = participantRepository.save(new Participant("Steve", "Rodgers", "04.07.1920", "male"));
+        Participant clinton = participantRepository.save(new Participant("Clinton", "Barton", "01.06.1973", "male"));
+        Participant natasha = participantRepository.save(new Participant("Natasha", "Romanova", "18.07.1975", "female"));
+
+        RequestSender sender = when();
+        Response response = sender.get("/api/participant");
+        ValidatableResponse vResponse = response.then();
+        vResponse.statusCode(HttpStatus.SC_OK);
+        List<ParticipantDto> avengers = vResponse.extract().body().jsonPath().getList(".", ParticipantDto.class);
+
+        assertThat(avengers.size(), is(3));
+
+        checkParticipant(getParicipantWithId(avengers, steve.getId()), steve);
+        checkParticipant(getParicipantWithId(avengers, clinton.getId()), clinton);
+        checkParticipant(getParicipantWithId(avengers, natasha.getId()), natasha);
+    }
+
+    private ParticipantDto getParicipantWithId(List<ParticipantDto> avengers, Long id) {
+        return avengers.stream().filter(p -> p.id == id).findFirst().orElse(null);
+    }
+
+    private void checkParticipant(ParticipantDto maybeParticipant, Participant  participant) {
+        assertThat(maybeParticipant, is(notNullValue()));
+        assertThat(maybeParticipant.firstName, is(participant.getFirstName()));
+        assertThat(maybeParticipant.lastName, is(participant.getLastName()));
+        assertThat(maybeParticipant.birthday, is(participant.getBirthday()));
+        assertThat(maybeParticipant.gender, is(participant.getGender()));
     }
 
     @Test
