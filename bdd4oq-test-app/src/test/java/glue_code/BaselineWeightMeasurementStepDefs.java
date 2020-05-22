@@ -28,7 +28,7 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
-public class WeightMeasurementsStepDefs {
+public class BaselineWeightMeasurementStepDefs {
 
     private WebDriver webDriver;
     private Long idAva;
@@ -60,9 +60,10 @@ public class WeightMeasurementsStepDefs {
         idAva = vResponse.extract().as(Long.class);
     }
 
-    //@And ("Ava has no weight measurement entry yet")
+    @And ("Ava has no baseline weight measurement entry yet")
+    public void avaHasNoWeightEntryYet(){}
 
-    @And("Patricia wants to register Ava's baseline weight measurement")
+    @And("Patricia wants to set Ava's baseline weight measurement")
     public void patriciaWantsToRegisterAvasBaselineWeightMeasurement(){
         webDriver.navigate().to("http://localhost:8098/#/participant/"+idAva);
     }

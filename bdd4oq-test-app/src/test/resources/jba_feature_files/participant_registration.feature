@@ -13,7 +13,7 @@ Feature: Registration of a participant
   This represents the simplest happy path.
 
     Given A participant Peter
-    And Peter has first name "Peter", last name "Parker", birthday "08.05.2002" and is "male"
+    And Peter has first name "Peter", last name "Parker", birthday "10.08.2001" and is "male"
     And Peter is not registered yet
     And Patricia wants to register Peter
     When Patricia enters Peter's data
