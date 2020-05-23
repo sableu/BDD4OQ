@@ -4,7 +4,7 @@
         <b-container fluid>
             <b-row>
                 <b-col sm="3"> <label>ID</label> </b-col>
-                <b-col sm="9"> {{participantId}} </b-col>
+                <b-col sm="9" id="participantId"> {{participantId}} </b-col>
                 <b-col sm="3"> <label>First Name</label> </b-col>
                 <b-col sm="9"> {{participant.firstName}} </b-col>
                 <b-col sm="3"> <label>Last Name</label> </b-col>

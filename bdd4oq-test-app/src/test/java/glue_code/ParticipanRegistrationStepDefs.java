@@ -21,13 +21,16 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ParticipanRegistrationStepDefs {
 
-   private ParticipantDto peter;
-   private WebDriver webDriver;
 
-   @Before
-   public void before(){
-       webDriver = TestContext.getInstance().getWebDriver();
-   }
+    private WebDriver webDriver;
+    private ParticipantDto peter;
+    private Long idPeter;
+
+
+    @Before
+    public void before() {
+        webDriver = TestContext.getInstance().getWebDriver();
+    }
 
     @Given("A participant Peter")
     public void aParticipantPeter() {
@@ -89,9 +92,9 @@ public class ParticipanRegistrationStepDefs {
 
     @Then("Peter should be found in the system")
     public void peterShouldBeFoundInTheSystem() {
-        long id = Long.parseLong(webDriver.findElement(By.id("registrationId")).getText());
+        idPeter = Long.parseLong(webDriver.findElement(By.id("participantId")).getText());
         RequestSender sender = when();
-        Response response = sender.get("/api/participant/" + id);
+        Response response = sender.get("/api/participant/" + idPeter);
         ValidatableResponse vResponse = response.then();
         vResponse.statusCode(200);
         ParticipantDto maybePeter = vResponse.extract().as(ParticipantDto.class);
@@ -99,9 +102,11 @@ public class ParticipanRegistrationStepDefs {
         assertThat(maybePeter.lastName, is(peter.lastName));
         assertThat(maybePeter.birthday, is(peter.birthday));
         assertThat(maybePeter.gender, is(peter.gender));
-
-        webDriver.navigate().to("http://localhost:8098/#/participant/" + id);
     }
 
-
+    @And("Peter's details should be displayed")
+    public void petersDetailsShouldBeDisplayed() {
+        String redirectedURL = webDriver.getCurrentUrl();
+        assertThat(redirectedURL, is("http://localhost:8098/#/participant/" + idPeter));
+    }
 }

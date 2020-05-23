@@ -4,7 +4,10 @@ Feature: Registration of a participant
 
   This specification describes how a person that would like to
   participate in a clinical trial gets registered (or not) by the nurse Patricia.
-  Input: bddoq-21
+  Input: bddoq-21, bddoq-51
+  Size:
+  1 active scenario
+  8 active steps
 
 
   Scenario: Registration of an unknown participant
@@ -19,6 +22,8 @@ Feature: Registration of a participant
     When Patricia enters Peter's data
     And registers them
     Then Peter should be found in the system
+    And Peter's details should be displayed
+
 
 
   @Ignore
@@ -32,31 +37,33 @@ Feature: Registration of a participant
     When Patricia enters the participants data
     Then the participant should be found in the system
     Examples:
-      | first_name      | last_name          | birthday                | gender  |
-      | "Hans-Peter J." | "Rudolf von Rohr"  | "16th of May 1951"      | "male"  |
-      | "Céline"        | "d'Artagnan"       | "18th of November 1982" | "female"|
+      | first_name      | last_name         | birthday                | gender   |
+      | "Hans-Peter J." | "Rudolf von Rohr" | "16th of May 1951"      | "male"   |
+      | "Céline"        | "d'Artagnan"      | "18th of November 1982" | "female" |
 
 
   @Ignore
   Scenario Outline: Denied registration of an unknown participant
 
   First name, family name, gender and birth date are mandatory fields and needs to be entered in order to finalise the registration.
+  The mandatory fields are defined in a way to mitigate the risk of a mix-up of two participants.
 
     Given Alex is not registered yet
     And the registration form is displayed
     And the First Name field of the form has value <first_name>
     And the Last Name field of the form has value <last_name>
-    And the Birthdate field of the form has value <birthdate>
+    And the birthday field of the form has value <birthday>
     And the Gender field of the form has value <gender>
     When Patricia confirms the registration
-    Then The system should display the message
+    Then The system should stay on the registration page
+    And should display the message
 	  """
 	  Please fill in all mandatory fields!
 	  """
     And Alex should not be registered
 
     Examples:
-      | first_name | last_name | birthdate    | gender |
+      | first_name | last_name | birthday    | gender |
       | "Alex"     | "Turner"  | "21.09.1946" | ""     |
       | "Alex"     | "Turner"  | ""           | "male" |
       | "Alex"     | ""        | "21.09.1946" | "male" |
@@ -76,8 +83,8 @@ Feature: Registration of a participant
       | field                 | value                                                                           |
       | "First Name"          | "Alicia"                                                                        |
       | "Last Name"           | "Bianchi"                                                                       |
-      | "Gender"              | "9.2.1992"                                                                      |
-      | "Birthdate"           | "female"                                                                        |
+      | "Gender"              | "female"                                                                        |
+      | "Birthday"            |  "9.2.1992"                                                                     |
       | "Participation denied | "yes"                                                                           |
       | "Comment"             | "Patricia is pregnant. She will be able to participate in 2022: alicia@foo.com" |
     Then Alicia should be found in the system with all the information entered.
@@ -97,6 +104,7 @@ Feature: Registration of a participant
   Scenario Outline: Denied registration of known participant
 
   A person is already registered, then it should not be possible to register him/her a second time.
+  To mitigate the risk of mixing up participants, the combination of the first name, last name and birthday must be unique and case insensitive.
 
     Given Scott is already registered with following data: "Scott", "Lang", "1st of March 1997", "male"
     And Patricia wants to register Scott

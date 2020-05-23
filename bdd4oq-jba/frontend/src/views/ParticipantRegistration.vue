@@ -40,6 +40,7 @@
                     console.log(response);
                     this.id = response.data;
                     this.showResponse = true;
+                    this.$router.push('/participant/'+this.id);
                 })
                 .catch(e => {
                     console.log(e);
