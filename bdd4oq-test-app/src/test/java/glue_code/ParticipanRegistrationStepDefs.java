@@ -48,7 +48,7 @@ public class ParticipanRegistrationStepDefs {
 
     @And("Peter is not registered yet")
     public void peterIsNotRegisteredYet() {
-        webDriver.navigate().to("http://localhost:8098/");
+        webDriver.navigate().to("http://localhost:8098/#/participant");
         RequestSpecification request = given();
         request.param("firstName", peter.getFirstName());
         request.param("lastName", peter.getLastName());

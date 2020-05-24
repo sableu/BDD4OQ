@@ -57,7 +57,7 @@ public class ParticipantOverviewStepDefs {
 
     @And("she is not registered yet")
     public void she_is_not_registered_yet() {
-        webDriver.navigate().to("http://localhost:8098/");
+        webDriver.navigate().to("http://localhost:8098/#/participant");
         RequestSpecification request = given();
         request.param("firstName", natasha.getFirstName());
         request.param("lastName", natasha.getLastName());
@@ -91,5 +91,6 @@ public class ParticipantOverviewStepDefs {
         assertThat(maybeNatasha.lastName, is(natasha.lastName));
         assertThat(maybeNatasha.birthday, is(natasha.birthday));
         assertThat(maybeNatasha.gender, is(natasha.gender));
+        webDriver.navigate().to("http://localhost:8098/#/participant");
     }
 }
