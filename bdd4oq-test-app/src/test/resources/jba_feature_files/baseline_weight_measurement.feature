@@ -14,7 +14,7 @@ Feature: Setting of the baseline weight measurement of a participant
     Given Ava with first name "Ava", last name "Johnson", birthday "01.01.1989", gender "female" is registered
     And Ava has no baseline weight measurement entry yet
     And Patricia wants to set Ava's baseline weight measurement
-    When Patricia enters 68,5 kg in the weight field, "15.5.20, 8:15am" in the time field and "measurement done right after breakfast" in the comment field
+    When Patricia enters 68.5 kg in the weight field, "15.5.20, 8:15am" in the time field and "measurement done right after breakfast" in the comment field
     And she saves these entries
     Then Ava's baseline weight entry should be found in the system
 
