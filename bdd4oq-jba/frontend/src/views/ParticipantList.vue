@@ -1,7 +1,7 @@
 <template>
     <div class="participant">
         <h1>Participants</h1>
-        <b-table hover :items="participants" :fields="fields"  @row-clicked="participantClicked" />
+        <b-table hover :items="participants" :fields="fields"  @row-clicked="participantClicked" id="participantTable"/>
         <b-alert :show="!hasResults" variant="info">No participants registered</b-alert>
     </div>
 </template>
