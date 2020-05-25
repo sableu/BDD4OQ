@@ -1,15 +1,11 @@
 package glue_code;
 
-import com.github.andreashosbach.cucumber_scenarioo_plugin.model.Screenshot;
 import glue_code.backend_api.ParticipantDto;
-import io.cucumber.java.After;
-import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
@@ -17,13 +13,8 @@ import io.restassured.specification.RequestSender;
 import io.restassured.specification.RequestSpecification;
 import org.apache.http.HttpStatus;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.util.concurrent.TimeUnit;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.when;
-import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 

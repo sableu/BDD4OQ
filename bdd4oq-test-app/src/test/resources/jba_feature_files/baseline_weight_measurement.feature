@@ -1,6 +1,6 @@
 #language: en
 
-Feature: Setting of the baseline weight measurement of a participant
+Feature: Setting the baseline weight measurement
 
   This specification describes how the nurse patricia sets the baseline weight measurement of the participants
   Input: bddoq-26
