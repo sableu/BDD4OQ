@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         glue = "glue_code",
         strict = true,
         plugin = "com.github.andreashosbach.cucumber_scenarioo_plugin.CucumberScenariooPlugin:target/scenarioo",
-        tags = "not @Ignore"
+        tags = "not @Ignore and not @TestOfQOTestApp"
 )
 public class TestRunner {
 }
