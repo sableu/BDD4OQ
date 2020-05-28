@@ -4,6 +4,9 @@ Feature: Setting the baseline weight measurement
 
   This specification describes how the nurse patricia sets the baseline weight measurement of the participants
   Input: bddoq-26
+  Size:
+  1 active scenario
+  6 active steps
 
 
   Scenario: Setting of the baseline weight measurement of a participant
