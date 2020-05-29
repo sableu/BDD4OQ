@@ -5,9 +5,6 @@ Feature: Registration of a participant
   This specification describes how a person that would like to
   participate in a clinical trial gets registered (or not) by the nurse Patricia.
   Input: bddoq-21, bddoq-51
-  Size:
-  1 active scenario
-  8 active steps
 
 
   Scenario: Registration of an unknown participant
@@ -25,7 +22,7 @@ Feature: Registration of a participant
     And Peter's details should be displayed
 
 
-  Scenario Outline: Registration of unknown participants with complicated Names
+  Scenario Outline: Registration of unknown participants with complicated names <nr>
 
    Non standard characters that might be used in some names have to be accepted by the system
 
@@ -38,9 +35,9 @@ Feature: Registration of a participant
     Then the participant should be found in the system
     And the participant's details should be displayed
     Examples:
-      | first_name      | last_name         | birthday                | gender   |
-      | "Hans-Peter J." | "Rudolf von Rohr" | "16th of May 1951"      | "male"   |
-      | "Céline"        | "d'Artagnan"      | "18th of November 1982" | "female" |
+      | nr | first_name      | last_name         | birthday               | gender   |
+      | 1  |"Hans-Peter J." | "Rudolf von Rohr" | "16th of May 1951"      | "male"   |
+      | 2  |"Céline"        | "d'Artagnan"      | "18th of November 1982" | "female" |
 
 
   @Ignore
