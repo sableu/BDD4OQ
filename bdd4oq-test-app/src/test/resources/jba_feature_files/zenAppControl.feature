@@ -4,7 +4,7 @@ Feature: Zen OQ Test App Controller
 
   This script tests the OQ Test App. The goal is to show, that steps that should fail are failing and steps that work properly are passing in order to mitigate the risk of a not properly working test automation.
 
-  @TestOfQOTestApp
+  @TestOfOQTestApp
   Scenario: Control Test Failure In Output
 
   AppTester will not be registered in the step 'registers AppTester'
@@ -18,7 +18,7 @@ Feature: Zen OQ Test App Controller
     Then AppTester should be found in the system
     And AppTester's details should be displayed
 
-  @TestOfQOTestApp
+  @TestOfOQTestApp
   Scenario: Control Test Success
 
     Given A participant AppTester
@@ -30,7 +30,7 @@ Feature: Zen OQ Test App Controller
     Then AppTester should be found in the system
     And AppTester's details should be displayed
 
-  @TestOfQOTestApp
+  @TestOfOQTestApp
   Scenario: Control Test Failure In Input
 
   AppTester is already in the system --> Scenario 'Control Test Success'
