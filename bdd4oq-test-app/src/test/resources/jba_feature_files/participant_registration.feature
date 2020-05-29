@@ -25,17 +25,18 @@ Feature: Registration of a participant
     And Peter's details should be displayed
 
 
-
-  @Ignore
   Scenario Outline: Registration of unknown participants with complicated Names
 
+   Non standard characters that might be used in some names have to be accepted by the system
 
     Given A participant
     And the participant has <first_name>, <last_name>, <birthday> and is <gender>
     And the participant is not registered yet
     And Patricia wants to register the participant
     When Patricia enters the participants data
+    And registers them
     Then the participant should be found in the system
+    And the participant's details should be displayed
     Examples:
       | first_name      | last_name         | birthday                | gender   |
       | "Hans-Peter J." | "Rudolf von Rohr" | "16th of May 1951"      | "male"   |
@@ -71,6 +72,7 @@ Feature: Registration of a participant
       | "Alex"     | "Turner"  | ""           | ""     |
       | ""         | "Turner"  | ""           | ""     |
 
+
   @Ignore
   Scenario: Registration with denial of participation
 
@@ -89,6 +91,7 @@ Feature: Registration of a participant
       | "Comment"             | "Patricia is pregnant. She will be able to participate in 2022: alicia@foo.com" |
     Then Alicia should be found in the system with all the information entered.
 
+
   @Ignore
   Scenario: Update registration of known participant
 
@@ -99,6 +102,7 @@ Feature: Registration of a participant
     When Patricia enters "Miller" in the respective field
     And adds into the comment field "married the 12th of June 2019"
     Then the new set of data should be found in the system
+
 
   @Ignore
   Scenario Outline: Denied registration of known participant
@@ -121,6 +125,7 @@ Feature: Registration of a participant
       | "Scott"    | "lang"    | "1st of March 1997" | "male"   |
       | "scott"    | "lang"    | "1st of March 1997" | "male"   |
       | "scott"    | "Lang"    | "1st of March 1997" | "male"   |
+
 
   @Ignore
   Scenario Outline: Accepted registration of a similar participant

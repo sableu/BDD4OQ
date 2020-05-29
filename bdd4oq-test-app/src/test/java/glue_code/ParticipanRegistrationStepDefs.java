@@ -25,6 +25,8 @@ public class ParticipanRegistrationStepDefs {
     private WebDriver webDriver;
     private ParticipantDto peter;
     private Long idPeter;
+    private ParticipantDto participant;
+    private Long idParticipant;
 
 
     @Before
@@ -44,7 +46,6 @@ public class ParticipanRegistrationStepDefs {
         peter.birthday = birthday;
         peter.gender = gender;
     }
-
 
     @And("Peter is not registered yet")
     public void peterIsNotRegisteredYet() {
@@ -67,14 +68,11 @@ public class ParticipanRegistrationStepDefs {
             vDeleteResponse.statusCode(HttpStatus.SC_OK);
         }
  */
-
     }
-
 
     @And("Patricia wants to register Peter")
     public void patriciaWantsToRegisterPeter() {
         webDriver.findElement(By.linkText("Participant Registration")).click();
-        //webDriver.navigate().to("http://localhost:8098/");
     }
 
     @When("Patricia enters Peter's data")
@@ -108,5 +106,64 @@ public class ParticipanRegistrationStepDefs {
     public void petersDetailsShouldBeDisplayed() {
         String redirectedURL = webDriver.getCurrentUrl();
         assertThat(redirectedURL, is("http://localhost:8098/#/participant/" + idPeter));
+    }
+
+    @Given("A participant")
+    public void aParticipant() {
+        participant = new ParticipantDto();
+    }
+
+    @And("the participant has {string}, {string}, {string} and is {string}")
+    public void participantHasFirstNameLastNameBirthdayAndIs(String firstName, String lastName, String birthday, String gender) {
+        participant.firstName = firstName;
+        participant.lastName = lastName;
+        participant.birthday = birthday;
+        participant.gender = gender;
+    }
+
+    @And("the participant is not registered yet")
+    public void theParticipantIsNotRegisteredYet() {
+        webDriver.navigate().to("http://localhost:8098/#/participant");
+        RequestSpecification request = given();
+        request.param("firstName", participant.getFirstName());
+        request.param("lastName", participant.getLastName());
+        request.param("birthday", participant.getBirthday());
+        RequestSender sender = request.when();
+        Response response = sender.get("/api/participant/search");
+        ValidatableResponse vResponse = response.then();
+        vResponse.statusCode(404);
+    }
+
+    @And("Patricia wants to register the participant")
+    public void patriciaWantsToRegisterTheParticipant() {
+        webDriver.findElement(By.linkText("Participant Registration")).click();
+    }
+
+    @When("Patricia enters the participants data")
+    public void patriciaEntersTheParticipantsData() {
+        webDriver.findElement(By.id("firstName")).sendKeys(participant.firstName);
+        webDriver.findElement(By.id("lastName")).sendKeys(participant.lastName);
+        webDriver.findElement(By.id("birthday")).sendKeys(participant.birthday);
+        webDriver.findElement(By.id("gender")).sendKeys(participant.gender);
+    }
+
+    @Then("the participant should be found in the system")
+    public void theParticipantShouldBeFoundInTheSystem() {
+        idParticipant = Long.parseLong(webDriver.findElement(By.id("participantId")).getText());
+        RequestSender sender = when();
+        Response response = sender.get("/api/participant/" + idParticipant);
+        ValidatableResponse vResponse = response.then();
+        vResponse.statusCode(200);
+        ParticipantDto maybePeter = vResponse.extract().as(ParticipantDto.class);
+        assertThat(maybePeter.firstName, is(participant.firstName));
+        assertThat(maybePeter.lastName, is(participant.lastName));
+        assertThat(maybePeter.birthday, is(participant.birthday));
+        assertThat(maybePeter.gender, is(participant.gender));
+    }
+
+    @And("the participant's details should be displayed")
+    public void theParticipantsDetailsShouldBeDisplayed() {
+        String redirectedURL = webDriver.getCurrentUrl();
+        assertThat(redirectedURL, is("http://localhost:8098/#/participant/" + idParticipant));
     }
 }
