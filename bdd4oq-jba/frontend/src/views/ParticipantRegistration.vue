@@ -24,6 +24,7 @@
         name: 'participant_registration',
         data()  {
             return {
+                title: 'BDD4OQ JBA - Participant Registration',
                 id: [],
                 showResponse: false,
                 participant: {
@@ -33,6 +34,9 @@
                     gender:''
                  }
             }
+        },
+        mounted(){
+            document.title = this.title;
         },
         methods: {
             registerParticipant() {

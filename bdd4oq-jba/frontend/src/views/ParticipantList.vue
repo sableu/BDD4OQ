@@ -12,6 +12,7 @@
         name: 'participant',
         data()  {
             return {
+                title: 'BDD4OQ JBA - Participant List',
                 fields: [
                     {
                         key: 'id',
@@ -45,6 +46,7 @@
         },
         mounted(){
             this.fetchData();
+            document.title = this.title;
         },
         watch:{
             '$route':'fetchData'

@@ -42,6 +42,7 @@
         name: 'participant',
         data()  {
             return {
+                title: 'BDD4OQ JBA - Participant',
                 participantId: -1,
                 participant: {
                     firstName: '',
@@ -64,6 +65,7 @@
         },
         // ToDo this.comment
         mounted(){
+            document.title = this.title;
             this.fetchData();
         },
         watch:{
