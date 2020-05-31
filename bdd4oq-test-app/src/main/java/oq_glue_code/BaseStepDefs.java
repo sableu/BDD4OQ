@@ -12,7 +12,6 @@ public class BaseStepDefs {
     @Before
     public void setupDriver() {
         TestContext.getInstance().getWebDriver().navigate().to("about:blank");
-
     }
 
     @AfterStep

@@ -22,6 +22,7 @@ public class Main {
         runTests(listener);
         TestContext.cleanup();
         listener.getSummary().printTo(new PrintWriter(System.out));
+        listener.getSummary().getFailures().stream().forEach(f -> System.out.println("[FAILED] "+f.getTestIdentifier().getDisplayName()));
     }
 
     private static void runTests(TestExecutionListener listener) {
