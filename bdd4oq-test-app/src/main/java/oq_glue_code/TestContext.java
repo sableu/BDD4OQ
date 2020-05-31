@@ -33,8 +33,8 @@ public class TestContext {
 
         webDriver.manage().window().setSize(new Dimension(1024, 768));
 
-        webDriver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-        webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
         RestAssured.baseURI = "http://localhost";
         RestAssured.port = 8098;
