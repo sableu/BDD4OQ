@@ -1,11 +1,12 @@
-package glue_code;
+package oq_glue_code;
 
-import glue_code.backend_api.ParticipantDto;
+import oq_glue_code.backend_api.ParticipantDto;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
@@ -14,7 +15,6 @@ import io.restassured.specification.RequestSpecification;
 import org.apache.http.HttpStatus;
 import org.openqa.selenium.*;
 
-import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -39,7 +39,7 @@ public class BaselineWeightMeasurementStepDefs {
         participantDto.birthday = birthday;
         participantDto.gender = gender;
 
-        RequestSpecification request = given();
+        RequestSpecification request = RestAssured.given();
         request.contentType(ContentType.JSON);
         request.body(participantDto);
         RequestSender sender = request.when();

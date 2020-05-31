@@ -1,4 +1,4 @@
-package glue_code;
+package oq_glue_code;
 
 import io.restassured.RestAssured;
 import org.openqa.selenium.Dimension;

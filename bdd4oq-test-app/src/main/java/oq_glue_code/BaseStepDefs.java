@@ -1,4 +1,4 @@
-package glue_code;
+package oq_glue_code;
 
 import com.github.andreashosbach.cucumber_scenarioo_plugin.model.Screenshot;
 import io.cucumber.java.After;

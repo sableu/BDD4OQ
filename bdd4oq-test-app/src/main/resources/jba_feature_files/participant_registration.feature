@@ -24,7 +24,7 @@ Feature: Registration of a participant
 
   Scenario Outline: Registration of unknown participants with complicated names <nr>
 
-   Non standard characters that might be used in some names have to be accepted by the system
+   Non standard characters, that might be used in some names, have to be accepted by the system
 
     Given A participant
     And the participant has <first_name>, <last_name>, <birthday> and is <gender>

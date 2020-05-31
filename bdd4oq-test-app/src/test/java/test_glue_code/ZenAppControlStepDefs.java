@@ -1,6 +1,7 @@
-package glue_code;
+package test_glue_code;
 
-import glue_code.backend_api.ParticipantDto;
+import oq_glue_code.TestContext;
+import oq_glue_code.backend_api.ParticipantDto;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;

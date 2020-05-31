@@ -5,11 +5,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/jba_feature_files",
-        glue = "glue_code",
+        features = "src/test/resources/test_feature_files",
+        glue = "test_glue_code",
         strict = true,
-        plugin = "com.github.andreashosbach.cucumber_scenarioo_plugin.CucumberScenariooPlugin:target/scenarioo",
-        tags = "not @Ignore and not @TestOfOQTestApp"
+        tags = "not @Ignore"
 )
 public class TestRunner {
 }

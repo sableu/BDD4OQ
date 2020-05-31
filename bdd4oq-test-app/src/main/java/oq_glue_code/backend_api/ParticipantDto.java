@@ -1,4 +1,4 @@
-package glue_code.backend_api;
+package oq_glue_code.backend_api;
 
 public class ParticipantDto {
     public Long id;

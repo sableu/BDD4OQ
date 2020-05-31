@@ -1,12 +1,15 @@
-package glue_code;
+package oq_glue_code;
 
-import glue_code.backend_api.ParticipantDto;
+import io.restassured.RestAssured;
+import oq_glue_code.backend_api.ParticipantDto;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.specification.RequestSpecification;
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.*;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
@@ -14,7 +17,6 @@ import io.restassured.specification.RequestSender;
 
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.when;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -50,7 +52,7 @@ public class ParticipanRegistrationStepDefs {
     @And("Peter is not registered yet")
     public void peterIsNotRegisteredYet() {
         webDriver.navigate().to("http://localhost:8098/#/participant");
-        RequestSpecification request = given();
+        RequestSpecification request = RestAssured.given();
         request.param("firstName", peter.getFirstName());
         request.param("lastName", peter.getLastName());
         request.param("birthday", peter.getBirthday());
@@ -91,15 +93,15 @@ public class ParticipanRegistrationStepDefs {
     @Then("Peter should be found in the system")
     public void peterShouldBeFoundInTheSystem() {
         idPeter = Long.parseLong(webDriver.findElement(By.id("participantId")).getText());
-        RequestSender sender = when();
+        RequestSender sender = RestAssured.when();
         Response response = sender.get("/api/participant/" + idPeter);
         ValidatableResponse vResponse = response.then();
         vResponse.statusCode(200);
         ParticipantDto maybePeter = vResponse.extract().as(ParticipantDto.class);
-        assertThat(maybePeter.firstName, is(peter.firstName));
-        assertThat(maybePeter.lastName, is(peter.lastName));
-        assertThat(maybePeter.birthday, is(peter.birthday));
-        assertThat(maybePeter.gender, is(peter.gender));
+        MatcherAssert.assertThat(maybePeter.firstName, CoreMatchers.is(peter.firstName));
+        MatcherAssert.assertThat(maybePeter.lastName, CoreMatchers.is(peter.lastName));
+        MatcherAssert.assertThat(maybePeter.birthday, CoreMatchers.is(peter.birthday));
+        MatcherAssert.assertThat(maybePeter.gender, CoreMatchers.is(peter.gender));
     }
 
     @And("Peter's details should be displayed")
@@ -124,7 +126,7 @@ public class ParticipanRegistrationStepDefs {
     @And("the participant is not registered yet")
     public void theParticipantIsNotRegisteredYet() {
         webDriver.navigate().to("http://localhost:8098/#/participant");
-        RequestSpecification request = given();
+        RequestSpecification request = RestAssured.given();
         request.param("firstName", participant.getFirstName());
         request.param("lastName", participant.getLastName());
         request.param("birthday", participant.getBirthday());
@@ -150,15 +152,15 @@ public class ParticipanRegistrationStepDefs {
     @Then("the participant should be found in the system")
     public void theParticipantShouldBeFoundInTheSystem() {
         idParticipant = Long.parseLong(webDriver.findElement(By.id("participantId")).getText());
-        RequestSender sender = when();
+        RequestSender sender = RestAssured.when();
         Response response = sender.get("/api/participant/" + idParticipant);
         ValidatableResponse vResponse = response.then();
         vResponse.statusCode(200);
         ParticipantDto maybePeter = vResponse.extract().as(ParticipantDto.class);
-        assertThat(maybePeter.firstName, is(participant.firstName));
-        assertThat(maybePeter.lastName, is(participant.lastName));
-        assertThat(maybePeter.birthday, is(participant.birthday));
-        assertThat(maybePeter.gender, is(participant.gender));
+        MatcherAssert.assertThat(maybePeter.firstName, CoreMatchers.is(participant.firstName));
+        MatcherAssert.assertThat(maybePeter.lastName, CoreMatchers.is(participant.lastName));
+        MatcherAssert.assertThat(maybePeter.birthday, CoreMatchers.is(participant.birthday));
+        MatcherAssert.assertThat(maybePeter.gender, CoreMatchers.is(participant.gender));
     }
 
     @And("the participant's details should be displayed")

@@ -1,6 +1,7 @@
-package glue_code;
+package oq_glue_code;
 
-import glue_code.backend_api.ParticipantDto;
+import io.restassured.RestAssured;
+import oq_glue_code.backend_api.ParticipantDto;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -10,13 +11,14 @@ import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSender;
 import io.restassured.specification.RequestSpecification;
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-import static io.restassured.RestAssured.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.fail;
@@ -58,7 +60,7 @@ public class ParticipantOverviewStepDefs {
     @And("she is not registered yet")
     public void she_is_not_registered_yet() {
         webDriver.navigate().to("http://localhost:8098/#/participant");
-        RequestSpecification request = given();
+        RequestSpecification request = RestAssured.given();
         request.param("firstName", natasha.getFirstName());
         request.param("lastName", natasha.getLastName());
         request.param("birthday", natasha.getBirthday());
@@ -82,15 +84,15 @@ public class ParticipantOverviewStepDefs {
     @Then("Natasha should be found in the overview.")
     public void natasha_should_be_found_in_the_overview() {
         idNatasha = Long.parseLong(webDriver.findElement(By.id("participantId")).getText());
-        RequestSender sender = when();
+        RequestSender sender = RestAssured.when();
         Response response = sender.get("/api/participant/" + idNatasha);
         ValidatableResponse vResponse = response.then();
         vResponse.statusCode(200);
         ParticipantDto maybeNatasha = vResponse.extract().as(ParticipantDto.class);
-        assertThat(maybeNatasha.firstName, is(natasha.firstName));
-        assertThat(maybeNatasha.lastName, is(natasha.lastName));
-        assertThat(maybeNatasha.birthday, is(natasha.birthday));
-        assertThat(maybeNatasha.gender, is(natasha.gender));
+        MatcherAssert.assertThat(maybeNatasha.firstName, CoreMatchers.is(natasha.firstName));
+        MatcherAssert.assertThat(maybeNatasha.lastName, CoreMatchers.is(natasha.lastName));
+        MatcherAssert.assertThat(maybeNatasha.birthday, CoreMatchers.is(natasha.birthday));
+        MatcherAssert.assertThat(maybeNatasha.gender, CoreMatchers.is(natasha.gender));
         webDriver.navigate().to("http://localhost:8098/#/participant");
     }
 }
