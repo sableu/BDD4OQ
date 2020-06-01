@@ -50,9 +50,9 @@ public class ZenAppControlStepDefs {
     public void appTesterIsNotRegisteredYet() {
         webDriver.navigate().to("http://localhost:8098/#/participant");
         RequestSpecification request = given();
-        request.param("firstName", appTester.getFirstName());
-        request.param("lastName", appTester.getLastName());
-        request.param("birthday", appTester.getBirthday());
+        request.param("firstName", appTester.firstName);
+        request.param("lastName", appTester.lastName);
+        request.param("birthday", appTester.birthday);
         RequestSender sender = request.when();
         Response response = sender.get("/api/participant/search");
         ValidatableResponse vResponse = response.then();

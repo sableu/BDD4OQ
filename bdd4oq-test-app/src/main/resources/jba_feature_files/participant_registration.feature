@@ -7,33 +7,33 @@ Feature: Registration of a participant
   Input: bddoq-21, bddoq-51
 
 
+  Background:
+    Given Patricia has the application open
+
+
   Scenario: Registration of an unknown participant
 
   To register a new participant who has no entry in the DB yet, the first name, family name, gender and birth date needs to be entered in order to successfully register the new participant.
   This represents the simplest happy path.
 
-    Given A participant Peter
-    And Peter has first name "Peter", last name "Parker", birthday "10.08.2001" and is "male"
-    And Peter is not registered yet
-    And Patricia wants to register Peter
-    When Patricia enters Peter's data
+    Given a participant with first name "Peter", last name "Parker", birthday "10.08.2001" and is "male"
+    And "Peter" is not registered yet
+    And Patricia wants to register "Peter"
+    When Patricia enters "Peter"'s data
     And registers them
-    Then Peter should be found in the system
-    And Peter's details should be displayed
+    Then "Peter"'s details should be displayed
 
 
   Scenario Outline: Registration of unknown participants with complicated names <nr>
 
    Non standard characters, that might be used in some names, have to be accepted by the system
 
-    Given A participant
-    And the participant has <first_name>, <last_name>, <birthday> and is <gender>
-    And the participant is not registered yet
-    And Patricia wants to register the participant
-    When Patricia enters the participants data
+    Given a participant with first name <first_name>, last name <last_name>, birthday <birthday> and is <gender>
+    And <first_name> is not registered yet
+    And Patricia wants to register <first_name>
+    When Patricia enters <first_name>'s data
     And registers them
-    Then the participant should be found in the system
-    And the participant's details should be displayed
+    Then <first_name>'s details should be displayed
     Examples:
       | nr | first_name      | last_name         | birthday               | gender   |
       | 1  |"Hans-Peter J." | "Rudolf von Rohr" | "16th of May 1951"      | "male"   |

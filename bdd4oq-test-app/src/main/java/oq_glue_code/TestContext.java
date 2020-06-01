@@ -1,6 +1,7 @@
 package oq_glue_code;
 
 import io.restassured.RestAssured;
+import oq_glue_code.backend_api.ParticipantDto;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class TestContext {
     private static TestContext instance;
+    private ParticipantDto participant;
 
     public static TestContext getInstance() {
         if (instance == null) {
@@ -43,5 +45,13 @@ public class TestContext {
 
     public WebDriver getWebDriver() {
         return webDriver;
+    }
+
+    public ParticipantDto getParticipant(){
+        return participant;
+    }
+
+    public void setParticipant(ParticipantDto participant){
+        this.participant = participant;
     }
 }

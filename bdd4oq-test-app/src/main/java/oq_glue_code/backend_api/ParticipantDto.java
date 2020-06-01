@@ -6,20 +6,4 @@ public class ParticipantDto {
     public String firstName;
     public String birthday;
     public String gender;
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getBirthday() {
-        return birthday;
-    }
-
-
-
-
 }

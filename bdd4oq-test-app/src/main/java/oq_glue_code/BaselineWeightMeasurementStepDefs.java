@@ -1,18 +1,9 @@
 package oq_glue_code;
 
-import oq_glue_code.backend_api.ParticipantDto;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
-import io.restassured.response.ValidatableResponse;
-import io.restassured.specification.RequestSender;
-import io.restassured.specification.RequestSpecification;
-import org.apache.http.HttpStatus;
 import org.openqa.selenium.*;
 
 import static org.hamcrest.CoreMatchers.not;
@@ -22,57 +13,35 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class BaselineWeightMeasurementStepDefs {
 
     private WebDriver webDriver;
-    private Long idAva;
 
     @Before
-    public void before(){
+    public void before() {
         webDriver = TestContext.getInstance().getWebDriver();
     }
 
-    @Given("Ava with first name {string}, last name {string}, birthday {string}, gender {string} is registered")
-    public void avaWithFirstNameLastNameBirthdayGenderIsRegistered(String firstName, String lastName, String birthday, String gender) {
-
-        ParticipantDto participantDto = new ParticipantDto();
-
-        participantDto.firstName = firstName;
-        participantDto.lastName = lastName;
-        participantDto.birthday = birthday;
-        participantDto.gender = gender;
-
-        RequestSpecification request = RestAssured.given();
-        request.contentType(ContentType.JSON);
-        request.body(participantDto);
-        RequestSender sender = request.when();
-        Response response = sender.post("/api/participant");
-
-        ValidatableResponse vResponse = response.then();
-        vResponse.statusCode(HttpStatus.SC_CREATED);
-
-        idAva = vResponse.extract().as(Long.class);
+    @And("{string} has no baseline weight measurement entry yet")
+    public void hasNoWeightEntryYet(String firstName) {
     }
 
-    @And ("Ava has no baseline weight measurement entry yet")
-    public void avaHasNoWeightEntryYet(){}
-
-    @And("Patricia wants to set Ava's baseline weight measurement")
-    public void patriciaWantsToRegisterAvasBaselineWeightMeasurement(){
-        webDriver.navigate().to("http://localhost:8098/#/participant/"+idAva);
+    @And("Patricia wants to set {string}'s baseline weight measurement")
+    public void patriciaWantsToRegisterBaselineWeightMeasurement(String firstName) {
+        webDriver.navigate().to("http://localhost:8098/#/participant/" + TestContext.getInstance().getParticipant().id);
     }
 
     @When("Patricia enters {double} kg in the weight field, {string} in the time field and {string} in the comment field")
-    public void patriciaEntersKgInTheWeightFieldInTheTimeFieldAndInTheCommentField(Double weight, String dateTime, String comment){
+    public void patriciaEntersKgInTheWeightFieldInTheTimeFieldAndInTheCommentField(Double weight, String dateTime, String comment) {
         webDriver.findElement(By.id("weight")).sendKeys(weight.toString());
         webDriver.findElement(By.id("dateTime")).sendKeys(dateTime);
         webDriver.findElement(By.id("comment")).sendKeys(comment);
     }
 
     @And("she saves these entries")
-    public void sheSavesTheseEntries(){
+    public void sheSavesTheseEntries() {
         webDriver.findElement(By.id("addWeight")).click();
     }
 
-    @Then("Ava's baseline weight entry should be found in the system")
-    public void avasBaselineWeightEntryShouldBeFoundInTheSystem(){
+    @Then("{string}'s baseline weight entry should be found in the system")
+    public void baselineWeightEntryShouldBeFoundInTheSystem(String firstName) {
         long id = Long.parseLong(webDriver.findElement(By.id("baselineId")).getText());
         assertThat(id, not(-1));
     }

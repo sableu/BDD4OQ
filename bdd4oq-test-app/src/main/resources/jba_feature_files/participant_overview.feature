@@ -8,14 +8,15 @@ Feature: Participant's overview
   4 active step
 
 
+  Background:
+    Given Patricia has the application open
+
+
   Scenario: Overview of all registered participants
 
-    Given "Natasha" "Romanoff" born the "1st of January 1984" cannot be found in the overview
-    And she is not registered yet
-    When Patricia registers her
-    Then Natasha should be found in the overview.
-
-
-
+    Given a participant with first name "Natasha", last name "Romanoff", birthday "1st of January 1984" and is "female"
+    And "Natasha" is not registered yet
+    When Patricia registers "Natasha"
+    Then "Natasha" should be found in the overview
 
 

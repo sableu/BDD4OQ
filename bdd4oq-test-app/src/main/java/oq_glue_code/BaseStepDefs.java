@@ -17,6 +17,7 @@ public class BaseStepDefs {
     @AfterStep
     public void afterStep() {
         TakesScreenshot scrShot = ((TakesScreenshot) (TestContext.getInstance().getWebDriver()));
-        Screenshot.save(TestContext.getInstance().getWebDriver().getTitle(), scrShot.getScreenshotAs(OutputType.BYTES));
+        String title = TestContext.getInstance().getWebDriver().getTitle();
+        Screenshot.save(title.isEmpty() ? "Unavailable" : title, scrShot.getScreenshotAs(OutputType.BYTES));
     }
 }

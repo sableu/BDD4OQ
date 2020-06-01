@@ -6,13 +6,13 @@
                 <b-col sm="3"> <label>ID</label> </b-col>
                 <b-col sm="9" id="participantId"> {{participantId}} </b-col>
                 <b-col sm="3"> <label>First Name</label> </b-col>
-                <b-col sm="9"> {{participant.firstName}} </b-col>
+                <b-col sm="9" id="participantFirstName"> {{participant.firstName}} </b-col>
                 <b-col sm="3"> <label>Last Name</label> </b-col>
-                <b-col sm="9"> {{participant.lastName}} </b-col>
+                <b-col sm="9" id="participantLastName"> {{participant.lastName}} </b-col>
                 <b-col sm="3"> <label>Birthday</label> </b-col>
-                <b-col sm="9"> {{participant.birthday}} </b-col>
+                <b-col sm="9" id="participantBirthday"> {{participant.birthday}} </b-col>
                 <b-col sm="3"> <label>Gender</label> </b-col>
-                <b-col sm="9"> {{participant.gender}} </b-col>
+                <b-col sm="9" id="participantGender"> {{participant.gender}} </b-col>
             </b-row>
         </b-container>
          <b-alert :show="showParticipantError" variant="danger">{{participantErrorMsg}}</b-alert>
