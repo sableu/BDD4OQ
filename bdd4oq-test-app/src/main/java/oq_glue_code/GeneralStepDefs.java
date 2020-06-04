@@ -9,6 +9,7 @@ import org.openqa.selenium.TakesScreenshot;
 
 import static oq_glue_code.TestContext.webDriver;
 
+
 public class GeneralStepDefs {
 
     @Before
@@ -16,7 +17,6 @@ public class GeneralStepDefs {
         webDriver().navigate().to("about:blank");
         TestContext.getInstance().setParticipant(new Participant());
     }
-
 
     @Given("Patricia has the application open")
     public void hasTheApplicationOpen() {

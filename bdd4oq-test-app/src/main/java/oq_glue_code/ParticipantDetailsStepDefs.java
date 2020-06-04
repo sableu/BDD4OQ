@@ -14,7 +14,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ParticipantDetailsStepDefs {
 
-
     @Then("{string}'s details should be displayed")
     public void detailsShouldBeDisplayed(String firstName) {
         assertThat(webDriver().findElement(By.id("participantFirstName")).getText(), is(participant().firstName));
@@ -22,7 +21,6 @@ public class ParticipantDetailsStepDefs {
         assertThat(webDriver().findElement(By.id("participantBirthday")).getText(), is(participant().birthday));
         assertThat(webDriver().findElement(By.id("participantGender")).getText(), is(participant().gender));
     }
-
 
     @And("{string} has no baseline weight measurement entry yet")
     public void hasNoWeightEntryYet(String firstName) {

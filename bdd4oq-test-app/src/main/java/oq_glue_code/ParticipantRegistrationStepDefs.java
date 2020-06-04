@@ -6,8 +6,6 @@ import org.openqa.selenium.By;
 
 import static oq_glue_code.TestContext.participant;
 import static oq_glue_code.TestContext.webDriver;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class ParticipantRegistrationStepDefs {
