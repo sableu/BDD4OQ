@@ -1,10 +1,27 @@
 #language: en
 
 Feature: Registration of a participant
-
   This specification describes how a person that would like to
   participate in a clinical trial gets registered (or not) by the nurse Patricia.
-  Input: bddoq-21, bddoq-51
+
+  Covered Requirements:
+  bddoq-21: Participant Registration
+  bddoq-51: Re-Direction to the Participant's Page after successful Registration
+
+  History (the last 8 versions are displayed on this list):
+  Version    |  Description                          | Name                   | Date          |  Digital Signature  ||
+  0.0.1.2    |  TS reviewed                          | Patricia Walker        | 24-May-2020   |  wp (symbolic)      ||
+  0.1.0.0    |  TS approved                          | Hank McKoy             | 25-May-2020   |  mh (symbolic)      ||
+  0.1.0.1    |  FS bddoq-51 included                 | Sabrina Leuenberger    | 28-May-2020   |  le (symbolic)      ||
+  0.1.0.2    |  FS reviewed                          | Patricia Walker        | 29-May-2020   |  wp (symbolic)      ||
+  0.1.1.0    |  FS approved                          | Hank McKoy             | 29-May-2020   |  mh (symbolic)      ||
+  0.1.1.1    |  FS adapted as Test script (TS)       | Andreas Hosbach        | 03-Jun-2020   |  ha (symbolic)      ||
+  0.1.1.2    |  TS reviewed                          | Patricia Walker        | 04-Jun-2020   |  wp (symbolic)      ||
+  1.0.0.0    |  TS approved  --> ready for OQ        | Hank McKoy             | 04-Jun-2020   |  mh (symbolic)      ||
+
+  Size:
+  3 active scenarios
+  21 active steps
 
 
   Background:
@@ -24,9 +41,9 @@ Feature: Registration of a participant
     Then "Peter"'s details should be displayed
 
 
-  Scenario Outline: Registration of unknown participants with complicated names <nr>
+  Scenario Outline: Registration of unknown participants with complicated names <description>
 
-   Non standard characters, that might be used in some names, have to be accepted by the system
+  Non standard characters, that might be used in some names, have to be accepted by the system
 
     Given a participant with first name <first_name>, last name <last_name>, birthday <birthday> and is <gender>
     And <first_name> is not registered yet
@@ -35,9 +52,9 @@ Feature: Registration of a participant
     And registers them
     Then <first_name>'s details should be displayed
     Examples:
-      | nr | first_name      | last_name         | birthday               | gender   |
-      | 1  |"Hans-Peter J." | "Rudolf von Rohr" | "16th of May 1951"      | "male"   |
-      | 2  |"Céline"        | "d'Artagnan"      | "18th of November 1982" | "female" |
+      | descriptions | first_name      | last_name         | birthday                | gender   |
+      | specialities | "Hans-Peter J." | "Rudolf von Rohr" | "16th of May 1951"      | "male"   |
+      | french       | "Céline"        | "d'Artagnan"      | "18th of November 1982" | "female" |
 
 
   @Ignore
@@ -61,7 +78,7 @@ Feature: Registration of a participant
     And Alex should not be registered
 
     Examples:
-      | first_name | last_name | birthday    | gender |
+      | first_name | last_name | birthday     | gender |
       | "Alex"     | "Turner"  | "21.09.1946" | ""     |
       | "Alex"     | "Turner"  | ""           | "male" |
       | "Alex"     | ""        | "21.09.1946" | "male" |
@@ -83,7 +100,7 @@ Feature: Registration of a participant
       | "First Name"          | "Alicia"                                                                        |
       | "Last Name"           | "Bianchi"                                                                       |
       | "Gender"              | "female"                                                                        |
-      | "Birthday"            |  "9.2.1992"                                                                     |
+      | "Birthday"            | "9.2.1992"                                                                      |
       | "Participation denied | "yes"                                                                           |
       | "Comment"             | "Patricia is pregnant. She will be able to participate in 2022: alicia@foo.com" |
     Then Alicia should be found in the system with all the information entered.

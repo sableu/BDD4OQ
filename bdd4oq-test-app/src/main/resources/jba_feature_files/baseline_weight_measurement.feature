@@ -1,15 +1,23 @@
 #language: en
 
 Feature: Setting the baseline weight measurement
-  This specification describes how the nurse Patricia sets the baseline weight measurement of the participants
+  This specification describes how the nurse Patricia sets the baseline weight measurement of the participants.
 
-  History:
-  Version    |  Description                          | Name                   | Date          |  Digital Signature   ||
-  0.0.1.0    |  FS initial version based on bddoq-26 | Sabrina Leuenberger    | 01-Jun-2020   |  ✔ le (symbolic)    ||
+  Covered Requirements:
+  bddoq-26: Setting of the Participant's Baseline Weight Measurement
+
+  History (the last 8 versions are displayed on this list):
+  Version    |  Description                          | Name                   | Date          |  Digital Signature  ||
+  0.0.0.1    |  FS initial version based on bddoq-26 | Sabrina Leuenberger    | 28-May-2020   |  le (symbolic)      ||
+  0.0.0.2    |  FS initial version reviewed          | Patricia Walker        | 29-May-2020   |  wp (symbolic)      ||
+  0.0.1.0    |  FS initial version approved          | Hank McKoy             | 29-May-2020   |  mh (symbolic)      ||
+  0.0.1.1    |  FS adapted as Test script (TS)       | Andreas Hosbach        | 03-Jun-2020   |  ha (symbolic)      ||
+  0.0.1.2    |  TS reviewed                          | Patricia Walker        | 04-Jun-2020   |  wp (symbolic)      ||
+  1.0.0.0    |  TS approved  --> ready for OQ        | Hank McKoy             | 04-Jun-2020   |  mh (symbolic)      ||
 
   Size:
   11 active scenarios
-  46 active steps
+  57 active steps
 
 
   Background:
@@ -35,7 +43,6 @@ Feature: Setting the baseline weight measurement
     When Patricia wants to register Ava's baseline weight measurement
     Then she should not be able to register a new baseline measurement
 
-  @Ignore
   Scenario Outline: Allowed weight entry values
   To minimise the risk of wrong entries only entries between >=0.5 and <=200 are valid
 
@@ -49,7 +56,6 @@ Feature: Setting the baseline weight measurement
       | "Elec"     | "Turner"  | "21.09.1947" | 200.0  |
       | "Ilex"     | "Turner"  | "21.09.2014" | 12.8   |
 
-  @Ignore
   Scenario Outline: Forbidden weight entry values
   To minimise the risk of wrong entries only outside the range of between >=0.5 and <=200 are invalid
 
