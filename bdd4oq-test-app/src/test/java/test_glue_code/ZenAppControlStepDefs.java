@@ -1,7 +1,7 @@
 package test_glue_code;
 
 import oq_glue_code.TestContext;
-import oq_glue_code.backend_api.ParticipantDto;
+import oq_glue_code.Participant;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -24,7 +24,7 @@ public class ZenAppControlStepDefs {
 
 
     private WebDriver webDriver;
-    private ParticipantDto appTester;
+    private Participant appTester;
     private Long idAppTester;
 
 
@@ -35,7 +35,7 @@ public class ZenAppControlStepDefs {
 
     @Given("A participant AppTester")
     public void aParticipantAppTester() {
-        appTester = new ParticipantDto();
+        appTester = new Participant();
     }
 
     @And("AppTester has first name {string}, last name {string}, birthday {string} and is {string}")
@@ -88,7 +88,7 @@ public class ZenAppControlStepDefs {
         Response response = sender.get("/api/participant/" + idAppTester);
         ValidatableResponse vResponse = response.then();
         vResponse.statusCode(200);
-        ParticipantDto maybePeter = vResponse.extract().as(ParticipantDto.class);
+        Participant maybePeter = vResponse.extract().as(Participant.class);
         assertThat(maybePeter.firstName, is(appTester.firstName));
         assertThat(maybePeter.lastName, is(appTester.lastName));
         assertThat(maybePeter.birthday, is(appTester.birthday));

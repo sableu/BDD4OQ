@@ -1,6 +1,6 @@
-package oq_glue_code.backend_api;
+package oq_glue_code;
 
-public class ParticipantDto {
+public class Participant {
     public Long id;
     public String lastName;
     public String firstName;
