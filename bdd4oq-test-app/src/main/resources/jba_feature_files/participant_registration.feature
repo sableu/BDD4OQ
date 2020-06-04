@@ -52,9 +52,9 @@ Feature: Registration of a participant
     And registers them
     Then <first_name>'s details should be displayed
     Examples:
-      | descriptions | first_name      | last_name         | birthday                | gender   |
-      | specialities | "Hans-Peter J." | "Rudolf von Rohr" | "16th of May 1951"      | "male"   |
-      | french       | "Céline"        | "d'Artagnan"      | "18th of November 1982" | "female" |
+      | description    | first_name      | last_name         | birthday                | gender   |
+      | "specialities" | "Hans-Peter J." | "Rudolf von Rohr" | "16th of May 1951"      | "male"   |
+      | "french"       | "Céline"        | "d'Artagnan"      | "18th of November 1982" | "female" |
 
 
   @Ignore

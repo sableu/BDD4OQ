@@ -43,6 +43,7 @@ Feature: Setting the baseline weight measurement
     When Patricia wants to register Ava's baseline weight measurement
     Then she should not be able to register a new baseline measurement
 
+  @Ignore
   Scenario Outline: Allowed weight entry values
   To minimise the risk of wrong entries only entries between >=0.5 and <=200 are valid
 
@@ -56,6 +57,7 @@ Feature: Setting the baseline weight measurement
       | "Elec"     | "Turner"  | "21.09.1947" | 200.0  |
       | "Ilex"     | "Turner"  | "21.09.2014" | 12.8   |
 
+  @Ignore
   Scenario Outline: Forbidden weight entry values
   To minimise the risk of wrong entries only outside the range of between >=0.5 and <=200 are invalid
 
