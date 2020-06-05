@@ -7,13 +7,13 @@ Feature: Setting the baseline weight measurement
   bddoq-26: Setting of the Participant's Baseline Weight Measurement
 
   History (the last 8 versions are displayed on this list):
-  Version    |  Description                          | Name                   | Date          |  Digital Signature  ||
-  0.0.0.1    |  FS initial version based on bddoq-26 | Sabrina Leuenberger    | 28-May-2020   |  le (symbolic)      ||
-  0.0.0.2    |  FS initial version reviewed          | Patricia Walker        | 29-May-2020   |  wp (symbolic)      ||
-  0.0.1.0    |  FS initial version approved          | Hank McKoy             | 29-May-2020   |  mh (symbolic)      ||
-  0.0.1.1    |  FS adapted as Test script (TS)       | Andreas Hosbach        | 03-Jun-2020   |  ha (symbolic)      ||
-  0.0.1.2    |  TS reviewed                          | Patricia Walker        | 04-Jun-2020   |  wp (symbolic)      ||
-  1.0.0.0    |  TS approved  --> ready for OQ        | Hank McKoy             | 04-Jun-2020   |  mh (symbolic)      ||
+  Sig. Version |  Description                          | Name                   | Date          |  Digital Signature  ||
+  0.0.0.1      |  FS initial version based on bddoq-26 | Sabrina Leuenberger    | 28-May-2020   |  le (symbolic)      ||
+  0.0.0.2      |  FS initial version reviewed          | Patricia Walker        | 29-May-2020   |  wp (symbolic)      ||
+  0.0.1.0      |  FS initial version approved          | Hank McKoy             | 29-May-2020   |  mh (symbolic)      ||
+  0.0.1.1      |  FS adapted as Test script (TS)       | Andreas Hosbach        | 03-Jun-2020   |  ha (symbolic)      ||
+  0.0.1.2      |  TS reviewed                          | Patricia Walker        | 04-Jun-2020   |  wp (symbolic)      ||
+  1.0.0.0      |  TS approved: Ready for OQ            | Hank McKoy             | 04-Jun-2020   |  mh (symbolic)      ||
 
   Size:
   11 active scenarios
