@@ -28,7 +28,7 @@
                 <b-col sm="3"> <b-form-input id="weight" type="number" v-model="baselineWeightEntry.weight"/> </b-col>
                 <b-col sm="3"> <b-form-input id="dateTime" v-model="baselineWeightEntry.dateTime"/> </b-col>
                 <b-col sm="3"> <b-form-input id="comment" v-model="baselineWeightEntry.comment"/> </b-col>
-                <b-col sm="3"> <b-button :disabled="addWeightBtnDisabled" variant="primary" id="addWeight" @click="setBaselineMeasurement()">Set</b-button> </b-col>
+                <b-col sm="3"> <b-button :disabled="setBaselineWeightBtnDisabled" variant="primary" id="setBaselineWeight" @click="setBaselineMeasurement()">Set</b-button> </b-col>
             </b-row>
         </b-container>
          <b-alert :show="showBaselineSuccess" variant="success">Created baseline with ID: <span id="baselineId">{{baselineMeasurementId}}</span></b-alert>
@@ -68,7 +68,7 @@
             this.fetchData();
         },
         computed: {
-  	        addWeightBtnDisabled(){
+  	        setBaselineWeightBtnDisabled(){
   	            return (this.baselineWeightEntry.weight == '' || this.baselineWeightEntry.weight > 200 || this.baselineWeightEntry.weight < 0.5 );
             }
         },

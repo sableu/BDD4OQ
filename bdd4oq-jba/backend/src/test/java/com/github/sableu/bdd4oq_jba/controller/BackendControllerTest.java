@@ -60,15 +60,6 @@ public class BackendControllerTest {
     }
 
     @Test
-    public void saysHello() {
-        RequestSender sender = when();
-        Response response = sender.get("/api/hello/Andreas");
-        ValidatableResponse vResponse = response.then();
-        vResponse.statusCode(HttpStatus.SC_OK);
-        vResponse.assertThat().body(is(equalTo(BackendController.HELLO_TEXT + "Andreas")));
-    }
-
-    @Test
     public void addParticipant() {
 
         ParticipantDto participantDto = new ParticipantDto();

@@ -16,8 +16,8 @@ Feature: Setting the baseline weight measurement
   1.0.0.0      |  TS approved: Ready for OQ            | Hank McKoy             | 04-Jun-2020   |  mh (symbolic)      ||
 
   Size:
-  11 active scenarios
-  57 active steps
+  9 active scenarios
+  55 active steps
 
 
   Background:
@@ -43,7 +43,7 @@ Feature: Setting the baseline weight measurement
     When Patricia wants to register Ava's baseline weight measurement
     Then she should not be able to register a new baseline measurement
 
-  Scenario Outline: Allowed weight entry values
+  Scenario Outline: Allowed weight entry values: <weight>
   To minimise the risk of wrong entries only entries between >=0.5 and <=200 are valid
 
     Given a participant with first name <first_name>, last name <last_name>, birthday "21.09.2014", gender "male" is registered
@@ -57,7 +57,7 @@ Feature: Setting the baseline weight measurement
       | "Elec"     | "Turner"  | 200.0  |
       | "Ilex"     | "Turner"  | 12.8   |
 
-  Scenario Outline: Forbidden weight entry values
+  Scenario Outline: Forbidden weight entry values: <weight>
   To minimise the risk of wrong entries only outside the range of between >=0.5 and <=200 are invalid
 
     Given a participant with first name "Eric", last name "Turner", birthday "21.09.2014", gender "male" is registered
@@ -72,5 +72,3 @@ Feature: Setting the baseline weight measurement
       | 0.3    |
       | -20.0  |
       | 200.05 |
-      | 0.3    |
-      | 0.3    |

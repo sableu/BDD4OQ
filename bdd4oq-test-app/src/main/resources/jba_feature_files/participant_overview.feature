@@ -17,7 +17,7 @@ Feature: Participant's overview
 
   Size:
   1 active scenario
-  5 active step
+  3 active step
 
 
   Background:
@@ -27,5 +27,7 @@ Feature: Participant's overview
 
     Given participants with first name, last name, birthday, gender are registered
     | "Natasha" | "Romanoff" | "1st of January 1984" | "female" |
-    | "Natasha1" | "Romanoff" | "1st of January 1984" | "female" |
+    | "Scott"   | "Lang"     | "1st of March 1997"   | "male"   |
+    | "Bruce"   | "Banner"   | "1st of May 1962"     | "male"   |
+    | "Betty"   | "Ross"     | "1st of May 1962"     | "female" |
     Then the participants should be found in the overview

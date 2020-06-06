@@ -40,7 +40,7 @@ public class ParticipantDetailsStepDefs {
 
     @And("she saves these entries")
     public void sheSavesTheseEntries() {
-        webDriver().findElement(By.id("addWeight")).click();
+        webDriver().findElement(By.id("setBaselineWeight")).click();
     }
 
     @Then("{string}'s baseline weight entry should be found in the system")
@@ -57,11 +57,11 @@ public class ParticipantDetailsStepDefs {
 
     @Then("she can set the baseline weight measurement")
     public void sheCanSetTheBaselineWeightMeasurement(){
-        assertThat(webDriver().findElement(By.id("addWeight")).isEnabled(), is(true));
+        assertThat(webDriver().findElement(By.id("setBaselineWeight")).isEnabled(), is(true));
     }
 
     @Then("she cannot set the baseline weight measurement")
     public void sheCannotSetTheBaselineWeightMeasurement(){
-        assertThat(webDriver().findElement(By.id("addWeight")).isEnabled(), is(false));
+        assertThat(webDriver().findElement(By.id("setBaselineWeight")).isEnabled(), is(false));
     }
 }

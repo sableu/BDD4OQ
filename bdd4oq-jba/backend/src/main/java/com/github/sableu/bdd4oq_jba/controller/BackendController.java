@@ -27,15 +27,6 @@ public class BackendController {
     @Autowired
     private WeightEntryRepository weightEntryRepository;
 
-    public static final String HELLO_TEXT = "Hello from Spring Boot Backend for ";
-
-    @RequestMapping(path = "/hello/{name}", method = RequestMethod.GET)
-    @ResponseStatus(HttpStatus.OK)
-    public String sayHello(@PathVariable("name") String name) {
-        logger.info("GET /hello/" + name);
-        return HELLO_TEXT + name;
-    }
-
     @RequestMapping(path = "/participant", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public List<ParticipantDto> getParticipants() {

@@ -24,7 +24,6 @@ public class TestContext {
             instance.webDriver.close();
             instance.webDriver.quit();
             instance = null;
-            instance.participants = new ArrayList<>();
         }
     }
 

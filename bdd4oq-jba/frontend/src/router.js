@@ -3,7 +3,7 @@ import Router from 'vue-router';
 import Home from './views/Home.vue';
 import ParticipantRegistration from './views/ParticipantRegistration.vue';
 import Participant from './views/Participant.vue';
-import ParticipantList from './views/ParticipantList.vue';
+import ParticipantOverview from './views/ParticipantOverview.vue';
 
 Vue.use(Router);
 
@@ -22,8 +22,8 @@ export default new Router({
         },
         {
             path: '/participant',
-            name: 'participantList',
-            component: ParticipantList
+            name: 'participantOverview',
+            component: ParticipantOverview
         },
         {
             path: '/participant/:participantId',
