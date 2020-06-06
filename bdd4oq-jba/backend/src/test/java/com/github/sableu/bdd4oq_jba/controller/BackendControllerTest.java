@@ -238,7 +238,7 @@ public class BackendControllerTest {
     public void setBaselineWeightMeasurementDeclined() {
         Participant piotr = participantRepository.save(new Participant("Piotr", "Parker", "03.05.1995", "male"));
 
-        WeightEntry firstEntry = weightEntryRepository.save(new WeightEntry(60d, "5.5.20, 4:30pm", "no comment", piotr.getId()));
+        WeightEntry firstEntry = weightEntryRepository.save(new WeightEntry(60d, "5.5.20, 4:30pm", "no comment", piotr.getId(), true));
 
         WeightEntryDto weightEntryDto = new WeightEntryDto();
         weightEntryDto.weight = 55.5;
@@ -253,5 +253,29 @@ public class BackendControllerTest {
 
         ValidatableResponse vResponse = response.then();
         vResponse.statusCode(HttpStatus.SC_FORBIDDEN);
+    }
+
+    @Test
+    public void getBaselineWeightMeasurementByParticipant() {
+        Participant isabella = participantRepository.save(new Participant("Isabella", "Parker", "03.05.1995", "female"));
+        WeightEntry weightEntryIsabella = weightEntryRepository.save(new WeightEntry(54.8d, "5.6.20, 2:30pm", "no comment", isabella.getId(), true));
+
+        // prepare http-request
+        RequestSpecification request = given();
+        request.param("weight", weightEntryIsabella.getWeight());
+        request.param("dateTime", weightEntryIsabella.getDateTime());
+        request.param("comment", weightEntryIsabella.getComment());
+
+        // send http-request
+        RequestSender sender = request.when();
+        Response response = sender.get("/api/participant/" + isabella.getId() + "/weights/baseline");
+
+        // evaluate response
+        ValidatableResponse vResponse = response.then();
+        vResponse.statusCode(HttpStatus.SC_OK);
+        WeightEntryDto maybeIsabellaBaselineMeasurement = vResponse.extract().as(WeightEntryDto.class);
+        assertThat(maybeIsabellaBaselineMeasurement.weight, is(weightEntryIsabella.getWeight()));
+        assertThat(maybeIsabellaBaselineMeasurement.dateTime, is(weightEntryIsabella.getDateTime()));
+        assertThat(maybeIsabellaBaselineMeasurement.comment, is(weightEntryIsabella.getComment()));
     }
 }

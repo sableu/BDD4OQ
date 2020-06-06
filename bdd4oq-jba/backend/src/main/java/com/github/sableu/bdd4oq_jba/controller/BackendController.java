@@ -74,7 +74,7 @@ public class BackendController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteParticipant(@PathVariable("id") Long id) {
         logger.info("DELETE /participant/" + id);
-        if(!participantRepository.existsById(id)){
+        if (!participantRepository.existsById(id)) {
             throw new ParticipantNotFoundException("The participant with id " + id + "could not be found");
         }
         participantRepository.deleteById(id);
@@ -83,15 +83,32 @@ public class BackendController {
     @RequestMapping(path = "/participant/{participantId}/weights/baseline", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public long addPWeight(@PathVariable("participantId") Long participantId, @RequestBody WeightEntryDto weightEntryDto) {
-        logger.info("POST /participant/"+participantId+"/weights/baseline");
-        if(!weightEntryRepository.findByParticipantId(participantId).isEmpty()){
+        logger.info("POST /participant/" + participantId + "/weights/baseline");
+        if (!weightEntryRepository.findByParticipantId(participantId).isEmpty()) {
             logger.info("Already a baseline present refusing new values");
             throw new BaselineMeasurementAlreadyExistsException("Baseline measurement already exists");
         }
-        WeightEntry weightEntry = weightEntryRepository.save(weightEntryDto.toWeightEntry(participantId));
+        WeightEntry weightEntry = weightEntryRepository.save(weightEntryDto.toBaselineWeightEntry(participantId));
         return weightEntry.getId();
     }
 
-    //TODO  GET /participant/{id}/measurement
-    //TODO POST /participant/{id}/measurement
+
+    @RequestMapping(path = "/participant/{id}/weights/baseline", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public WeightEntryDto getBaselineWeightMeasurementByParticipant(@PathVariable("id") Long id) {
+        logger.info("GET /participant/" + id + "/weights/baseline");
+        Collection<WeightEntry> weightEntries = weightEntryRepository.findByParticipantId(id);
+        List<WeightEntry> baselineWeightEntry = weightEntries.stream().filter(w -> w.isBaselineMeasurement()).collect(Collectors.toList());
+
+        if(baselineWeightEntry.isEmpty()){
+            throw new WeightEntryNotFoundException("Participant has no baseline weight measurement entry");
+        }
+
+        if(baselineWeightEntry.size() > 1){
+            throw new IllegalStateException("Participant has more than onw baseline weight measurement entry");
+        }
+
+        WeightEntryDto weightEntryDto = WeightEntryDto.fromWeightEntry(baselineWeightEntry.get(0));
+        return weightEntryDto;
+    }
 }

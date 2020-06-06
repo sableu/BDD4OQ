@@ -7,7 +7,21 @@ public class WeightEntryDto {
     public String dateTime;
     public String comment;
 
+
+    public static WeightEntryDto fromWeightEntry(WeightEntry weightEntry){
+        WeightEntryDto weightEntryDto = new WeightEntryDto();
+        weightEntryDto.weight = weightEntry.getWeight();
+        weightEntryDto.dateTime = weightEntry.getDateTime();
+        weightEntryDto.comment = weightEntry.getComment();
+
+        return weightEntryDto;
+    }
+
     public WeightEntry toWeightEntry(long participantId) {
-        return new WeightEntry(weight, dateTime, comment, participantId);
+        return new WeightEntry(weight, dateTime, comment, participantId, false);
+    }
+
+    public WeightEntry toBaselineWeightEntry(Long participantId) {
+        return new WeightEntry(weight, dateTime, comment, participantId, true);
     }
 }
