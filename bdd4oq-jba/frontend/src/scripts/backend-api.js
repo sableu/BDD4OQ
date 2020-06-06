@@ -31,6 +31,8 @@ export default {
             }
             console.log(data)
             return AXIOS.post('/participant/'+ participantId+'/weights/baseline', data);
-        }
-
+    },
+    getBaselineWeightMeasurement(participantId){
+            return AXIOS.get('/participant/'+ participantId+'/weights/baseline');
+    }
 }

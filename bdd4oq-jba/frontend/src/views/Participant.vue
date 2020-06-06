@@ -26,9 +26,9 @@
                 <b-col sm="3"> </b-col>
             </b-row>
             <b-row>
-                <b-col sm="3"> <b-form-input id="weight" type="number" v-model="baselineWeightEntry.weight"/> </b-col>
-                <b-col sm="3"> <b-form-input id="dateTime" v-model="baselineWeightEntry.dateTime"/> </b-col>
-                <b-col sm="3"> <b-form-input id="comment" v-model="baselineWeightEntry.comment"/> </b-col>
+                <b-col sm="3"> <b-form-input :disabled="baselineWeightInputDisabled" id="weight" type="number" v-model="baselineWeightEntry.weight"/> </b-col>
+                <b-col sm="3"> <b-form-input :disabled="baselineWeightInputDisabled" id="dateTime" v-model="baselineWeightEntry.dateTime"/> </b-col>
+                <b-col sm="3"> <b-form-input :disabled="baselineWeightInputDisabled" id="comment" v-model="baselineWeightEntry.comment"/> </b-col>
                 <b-col sm="3"> <b-button :disabled="setBaselineWeightBtnDisabled" variant="primary" id="setBaselineWeight" @click="setBaselineMeasurement()">Set</b-button> </b-col>
             </b-row>
         </b-container>
@@ -56,6 +56,7 @@
                     dateTime: '',
                     comment: ''
                 },
+                baselineWeightInputDisabled: true,
                 participantErrorMsg : '',
                 showParticipantError: false,
                 baselineWarningMsg: '',
@@ -70,7 +71,7 @@
         },
         computed: {
   	        setBaselineWeightBtnDisabled(){
-  	            return (this.baselineWeightEntry.weight == '' || this.baselineWeightEntry.weight > 200 || this.baselineWeightEntry.weight < 0.5 );
+  	            return (this.baselineWeightEntry.weight == '' || this.baselineWeightEntry.weight > 200 || this.baselineWeightEntry.weight < 0.5 || this.baselineWeightInputDisabled);
             }
         },
         watch:{
@@ -96,6 +97,20 @@
                     this.participantErrorMsg = 'Could not load participant';
                     this.showParticipantError = true;
                 })
+                api.getBaselineWeightMeasurement(this.participantId).then(response => {
+                    console.log(response);
+                    this.baselineWeightEntry.weight = response.data.weight;
+                    this.baselineWeightEntry.dateTime = response.data.dateTime;
+                    this.baselineWeightEntry.comment = response.data.comment;
+                    this.baselineWeightInputDisabled = true;
+                })
+                .catch(e => {
+                    console.log(e);
+                    this.baselineWeightEntry.weight = '';
+                    this.baselineWeightEntry.dateTime = '';
+                    this.baselineWeightEntry.comment = '';
+                    this.baselineWeightInputDisabled = false;
+                })
             },
             setBaselineMeasurement(){
                 this.showBaselineWarning = false;
@@ -104,6 +119,7 @@
                     console.log(response);
                     this.baselineMeasurementId = response.data;
                     this.showBaselineSuccess = true;
+                    this.baselineWeightInputDisabled = true;
                 })
                 .catch(e => {
                     console.log(e);
