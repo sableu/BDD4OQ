@@ -12,7 +12,7 @@
         name: 'participant',
         data()  {
             return {
-                title: 'BDD4OQ JBA - Participant List',
+                title: 'BDD4OQ JBA - Participant Overview',
                 fields: [
                     {
                         key: 'id',

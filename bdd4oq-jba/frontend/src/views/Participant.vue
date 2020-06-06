@@ -16,6 +16,7 @@
             </b-row>
         </b-container>
          <b-alert :show="showParticipantError" variant="danger">{{participantErrorMsg}}</b-alert>
+        <br/>
         <h4>Baseline Weight Measurement</h4>
         <b-container fluid>
             <b-row>
