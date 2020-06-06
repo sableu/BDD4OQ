@@ -16,10 +16,10 @@ public class ParticipantDetailsStepDefs {
 
     @Then("{string}'s details should be displayed")
     public void detailsShouldBeDisplayed(String firstName) {
-        assertThat(webDriver().findElement(By.id("participantFirstName")).getText(), is(participant().firstName));
-        assertThat(webDriver().findElement(By.id("participantLastName")).getText(), is(participant().lastName));
-        assertThat(webDriver().findElement(By.id("participantBirthday")).getText(), is(participant().birthday));
-        assertThat(webDriver().findElement(By.id("participantGender")).getText(), is(participant().gender));
+        assertThat(webDriver().findElement(By.id("participantFirstName")).getText(), is(participant(firstName).firstName));
+        assertThat(webDriver().findElement(By.id("participantLastName")).getText(), is(participant(firstName).lastName));
+        assertThat(webDriver().findElement(By.id("participantBirthday")).getText(), is(participant(firstName).birthday));
+        assertThat(webDriver().findElement(By.id("participantGender")).getText(), is(participant(firstName).gender));
     }
 
     @And("{string} has no baseline weight measurement entry yet")
@@ -28,7 +28,7 @@ public class ParticipantDetailsStepDefs {
 
     @And("Patricia wants to set {string}'s baseline weight measurement")
     public void patriciaWantsToRegisterBaselineWeightMeasurement(String firstName) {
-        webDriver().navigate().to("http://localhost:8098/#/participant/" + participant().id);
+        webDriver().navigate().to("http://localhost:8098/#/participant/" + participant(firstName).id);
     }
 
     @When("Patricia enters {double} kg in the weight field, {string} in the time field and {string} in the comment field")
@@ -47,5 +47,21 @@ public class ParticipantDetailsStepDefs {
     public void baselineWeightEntryShouldBeFoundInTheSystem(String firstName) {
         long id = Long.parseLong(webDriver().findElement(By.id("baselineId")).getText());
         assertThat(id, not(-1));
+    }
+
+    @When("Patricia enters {double} kg and any valid date time")
+    public void patriciaEntersKg(Double weight){
+        webDriver().findElement(By.id("weight")).sendKeys(weight.toString());
+        webDriver().findElement(By.id("dateTime")).sendKeys("06-Jun-2020, 4:15pm");
+    }
+
+    @Then("she can set the baseline weight measurement")
+    public void sheCanSetTheBaselineWeightMeasurement(){
+        assertThat(webDriver().findElement(By.id("addWeight")).isEnabled(), is(true));
+    }
+
+    @Then("she cannot set the baseline weight measurement")
+    public void sheCannotSetTheBaselineWeightMeasurement(){
+        assertThat(webDriver().findElement(By.id("addWeight")).isEnabled(), is(false));
     }
 }

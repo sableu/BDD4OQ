@@ -43,34 +43,34 @@ Feature: Setting the baseline weight measurement
     When Patricia wants to register Ava's baseline weight measurement
     Then she should not be able to register a new baseline measurement
 
-  @Ignore
   Scenario Outline: Allowed weight entry values
   To minimise the risk of wrong entries only entries between >=0.5 and <=200 are valid
 
-    Given <first_name>,<last_name>,<birthday> is registered
-    And has no baseline weight measurement entry yet
-    When Patricia enters <weight>
+    Given a participant with first name <first_name>, last name <last_name>, birthday "21.09.2014", gender "male" is registered
+    And <first_name> has no baseline weight measurement entry yet
+    And Patricia wants to set <first_name>'s baseline weight measurement
+    When Patricia enters <weight> kg and any valid date time
     Then she can set the baseline weight measurement
     Examples:
-      | first_name | last_name | birthday     | weight |
-      | "Alec"     | "Turner"  | "01.05.2020" | 0.5    |
-      | "Elec"     | "Turner"  | "21.09.1947" | 200.0  |
-      | "Ilex"     | "Turner"  | "21.09.2014" | 12.8   |
+      | first_name | last_name | weight |
+      | "Alec"     | "Turner"  | 0.5    |
+      | "Elec"     | "Turner"  | 200.0  |
+      | "Ilex"     | "Turner"  | 12.8   |
 
-  @Ignore
   Scenario Outline: Forbidden weight entry values
   To minimise the risk of wrong entries only outside the range of between >=0.5 and <=200 are invalid
 
-    Given <first_name>,<last_name>,<birthday> is registered
-    And has no baseline weight measurement entry yet
-    When Patricia enters <weight>
+    Given a participant with first name "Eric", last name "Turner", birthday "21.09.2014", gender "male" is registered
+    And "Eric" has no baseline weight measurement entry yet
+    And Patricia wants to set "Eric"'s baseline weight measurement
+    When Patricia enters <weight> kg and any valid date time
     Then she cannot set the baseline weight measurement
     Examples:
-      | first_name | last_name | birthday     | weight |
-      | "Eric"     | "Turner"  | "01.05.2020" | 785    |
-      | "Eric"     | "Turner"  | "21.09.1947" | 0.45   |
-      | "Eric"     | "Turner"  | "21.09.2014" | 0.3    |
-      | "Eric"     | "Turner"  | "21.09.2014" | -20.0  |
-      | "Eric"     | "Turner"  | "21.09.2014" | 200.05 |
-      | "Eric"     | "Turner"  | "21.09.2014" | 0.3    |
-      | "Eric"     | "Turner"  | "21.09.2014" | 0.3    |
+      | weight |
+      | 785    |
+      | 0.45   |
+      | 0.3    |
+      | -20.0  |
+      | 200.05 |
+      | 0.3    |
+      | 0.3    |

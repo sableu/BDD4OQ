@@ -24,11 +24,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.net.ResponseCache;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(
@@ -109,6 +111,29 @@ public class BackendControllerTest {
         assertThat(maybePeter.lastName, is(peter.getLastName()));
         assertThat(maybePeter.birthday, is(peter.getBirthday()));
         assertThat(maybePeter.gender, is(peter.getGender()));
+    }
+
+    @Test
+    public void deleteParticipant() {
+
+        // add to db
+        Participant peter = participantRepository.save(new Participant("Peter", "Parker", "03.05.1995", "male"));
+
+        RequestSender sender = when();
+        Response response = sender.delete("/api/participant/" + peter.getId());
+        ValidatableResponse vResponse = response.then();
+        vResponse.statusCode(HttpStatus.SC_NO_CONTENT);
+
+        assertThat(participantRepository.findById(peter.getId()).isPresent(), is(false));
+    }
+
+    @Test
+    public void deleteParticipantNotfound() {
+
+        RequestSender sender = when();
+        Response response = sender.delete("/api/participant/1");
+        ValidatableResponse vResponse = response.then();
+        vResponse.statusCode(HttpStatus.SC_NOT_FOUND);
     }
 
     @Test

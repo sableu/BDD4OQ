@@ -16,6 +16,7 @@ import org.openqa.selenium.WebDriver;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
+import static oq_glue_code.TestContext.webDriver;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -30,7 +31,7 @@ public class ZenAppControlStepDefs {
 
     @Before
     public void before() {
-        webDriver = TestContext.getInstance().getWebDriver();
+        webDriver = webDriver();
     }
 
     @Given("A participant AppTester")

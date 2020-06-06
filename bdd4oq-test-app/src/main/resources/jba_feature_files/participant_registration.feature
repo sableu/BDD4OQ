@@ -37,7 +37,7 @@ Feature: Registration of a participant
     And "Peter" is not registered yet
     And Patricia wants to register "Peter"
     When Patricia enters "Peter"'s data
-    And registers them
+    And registers "Peter"'s data
     Then "Peter"'s details should be displayed
 
 
@@ -49,7 +49,7 @@ Feature: Registration of a participant
     And <first_name> is not registered yet
     And Patricia wants to register <first_name>
     When Patricia enters <first_name>'s data
-    And registers them
+    And registers <first_name>'s data
     Then <first_name>'s details should be displayed
     Examples:
       | description    | first_name      | last_name         | birthday                | gender   |

@@ -11,5 +11,5 @@ import org.junit.runner.RunWith;
         plugin = "com.github.andreashosbach.cucumber_scenarioo_plugin.CucumberScenariooPlugin:target/scenarioo",
         tags = "not @Ignore"
 )
-public class OQTestRunner {
+public class OQRunner {
 }

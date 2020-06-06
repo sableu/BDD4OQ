@@ -23,12 +23,9 @@ Feature: Participant's overview
   Background:
     Given Patricia has the application open
 
-
   Scenario: Overview of all registered participants
 
-    Given a participant with first name "Natasha", last name "Romanoff", birthday "1st of January 1984" and is "female"
-    And "Natasha" is not registered yet
-    When Patricia registers "Natasha"
-    Then "Natasha" should be found in the overview
-
-
+    Given participants with first name, last name, birthday, gender are registered
+    | "Natasha" | "Romanoff" | "1st of January 1984" | "female" |
+    | "Natasha1" | "Romanoff" | "1st of January 1984" | "female" |
+    Then the participants should be found in the overview

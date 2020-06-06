@@ -1,13 +1,19 @@
 package oq_glue_code;
 
 import com.github.andreashosbach.cucumber_scenarioo_plugin.model.Screenshot;
+import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
+import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
+import io.restassured.specification.RequestSender;
+import org.apache.http.HttpStatus;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-import static oq_glue_code.TestContext.webDriver;
+import static io.restassured.RestAssured.when;
+import static oq_glue_code.TestContext.*;
 
 
 public class GeneralStepDefs {
@@ -15,7 +21,19 @@ public class GeneralStepDefs {
     @Before
     public void setupDriver() {
         webDriver().navigate().to("about:blank");
-        TestContext.getInstance().setParticipant(new Participant());
+    }
+
+    @After
+    public void cleanupData() {
+        for(Participant participant : participants()){
+            if (participant.id != null) {
+                RequestSender sender = when();
+                Response response = sender.delete("/api/participant/" + participant.id);
+                ValidatableResponse vResponse = response.then();
+                vResponse.statusCode(HttpStatus.SC_NO_CONTENT);
+            }
+        }
+        clearParticipants();
     }
 
     @Given("Patricia has the application open")

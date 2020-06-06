@@ -79,6 +79,16 @@ public class BackendController {
         return participant.getId();
     }
 
+    @RequestMapping(path = "/participant/{id}", method = RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteParticipant(@PathVariable("id") Long id) {
+        logger.info("DELETE /participant/" + id);
+        if(!participantRepository.existsById(id)){
+            throw new ParticipantNotFoundException("The participant with id " + id + "could not be found");
+        }
+        participantRepository.deleteById(id);
+    }
+
     @RequestMapping(path = "/participant/{participantId}/weights/baseline", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public long addPWeight(@PathVariable("participantId") Long participantId, @RequestBody WeightEntryDto weightEntryDto) {

@@ -5,11 +5,12 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class TestContext {
     private static TestContext instance;
-    private Participant participant;
 
     public static TestContext getInstance() {
         if (instance == null) {
@@ -23,17 +24,32 @@ public class TestContext {
             instance.webDriver.close();
             instance.webDriver.quit();
             instance = null;
+            instance.participants = new ArrayList<>();
         }
     }
 
     public static WebDriver webDriver(){
         return getInstance().getWebDriver();
     }
+    private List<Participant> participants =  new ArrayList<>();
 
-    public static Participant participant(){
-        return getInstance().getParticipant();
+    public static Participant participant(String firstName){
+        return getInstance().getParticipant(firstName);
     }
 
+    public static List<Participant> participants(){
+        return getInstance().getParticipants();
+    }
+
+    public static void addParticipant(String firsName){
+        Participant participant = new Participant();
+        participant.firstName = firsName;
+        getInstance().addParticipant(participant);
+    }
+
+    public static  void clearParticipants(){
+        getInstance().getParticipants().clear();
+    }
     private WebDriver webDriver;
 
     private TestContext() {
@@ -48,15 +64,19 @@ public class TestContext {
 
     }
 
-    public WebDriver getWebDriver() {
+    private WebDriver getWebDriver() {
         return webDriver;
     }
 
-    public Participant getParticipant(){
-        return participant;
+    private Participant getParticipant(String firstName){
+        return participants.stream().filter(p -> firstName.equals(p.firstName)).findFirst().get();
     }
 
-    public void setParticipant(Participant participant){
-        this.participant = participant;
+    private List<Participant> getParticipants(){
+        return participants;
+    }
+
+    private void addParticipant(Participant participant){
+        this.participants.add(participant);
     }
 }
