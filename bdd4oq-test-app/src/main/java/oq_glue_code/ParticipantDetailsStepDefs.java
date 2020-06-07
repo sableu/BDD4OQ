@@ -14,6 +14,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ParticipantDetailsStepDefs {
 
+    WeightEntry participantBaselineWeightMeasurement = new WeightEntry();
+
     @Then("{string}'s details should be displayed")
     public void detailsShouldBeDisplayed(String firstName) {
         assertThat(webDriver().findElement(By.id("participantFirstName")).getText(), is(participant(firstName).firstName));
@@ -24,6 +26,8 @@ public class ParticipantDetailsStepDefs {
 
     @And("{string} has no baseline weight measurement entry yet")
     public void hasNoWeightEntryYet(String firstName) {
+        webDriver().navigate().to("http://localhost:8098/#/participant/" + participant(firstName).id);
+        assertThat(webDriver().findElement(By.id("weight")).getText(), is(""));
     }
 
     @And("Patricia wants to set {string}'s baseline weight measurement")
@@ -33,6 +37,9 @@ public class ParticipantDetailsStepDefs {
 
     @When("Patricia enters {double} kg in the weight field, {string} in the time field and {string} in the comment field")
     public void patriciaEntersKgInTheWeightFieldInTheTimeFieldAndInTheCommentField(Double weight, String dateTime, String comment) {
+        participantBaselineWeightMeasurement.weight = weight;
+        participantBaselineWeightMeasurement.dateTime = dateTime;
+        participantBaselineWeightMeasurement.comment = comment;
         webDriver().findElement(By.id("weight")).sendKeys(weight.toString());
         webDriver().findElement(By.id("dateTime")).sendKeys(dateTime);
         webDriver().findElement(By.id("comment")).sendKeys(comment);
@@ -47,21 +54,36 @@ public class ParticipantDetailsStepDefs {
     public void baselineWeightEntryShouldBeFoundInTheSystem(String firstName) {
         long id = Long.parseLong(webDriver().findElement(By.id("baselineId")).getText());
         assertThat(id, not(-1));
+        //assertThat(webDriver().findElement(By.id("weight")).getText(), is(participantBaselineWeightMeasurement.weight));
     }
 
     @When("Patricia enters {double} kg and any valid date time")
-    public void patriciaEntersKg(Double weight){
+    public void patriciaEntersKg(Double weight) {
         webDriver().findElement(By.id("weight")).sendKeys(weight.toString());
         webDriver().findElement(By.id("dateTime")).sendKeys("06-Jun-2020, 4:15pm");
     }
 
     @Then("she can set the baseline weight measurement")
-    public void sheCanSetTheBaselineWeightMeasurement(){
+    public void sheCanSetTheBaselineWeightMeasurement() {
         assertThat(webDriver().findElement(By.id("setBaselineWeight")).isEnabled(), is(true));
+        webDriver().findElement(By.id("setBaselineWeight")).click();
     }
 
     @Then("she cannot set the baseline weight measurement")
-    public void sheCannotSetTheBaselineWeightMeasurement(){
+    public void sheCannotSetTheBaselineWeightMeasurement() {
         assertThat(webDriver().findElement(By.id("setBaselineWeight")).isEnabled(), is(false));
+    }
+
+    @And("{string}'s baseline weight measurement is set")
+    public void baselineWeightMeasurementIsSet(String firstName) {
+        webDriver().navigate().to("http://localhost:8098/#/participant/" + participant(firstName).id);
+        patriciaEntersKgInTheWeightFieldInTheTimeFieldAndInTheCommentField(68.5, "15.5.20, 8:15am", "any comment");
+        sheSavesTheseEntries();
+        webDriver().navigate().refresh();
+    }
+
+    @Then("{string}'s baseline weight entry should be displayed on that page")
+    public void baselineWeightEntryShouldBeDisplayedOnThatPage(String firstName) {
+        assertThat(webDriver().findElement(By.id("weight")).getAttribute("value"), is(participantBaselineWeightMeasurement.weight.toString()));
     }
 }

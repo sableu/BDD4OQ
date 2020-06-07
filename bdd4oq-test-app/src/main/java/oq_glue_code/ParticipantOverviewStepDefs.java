@@ -76,4 +76,15 @@ public class ParticipantOverviewStepDefs {
             participantOverviewContainsParticipant(participant.firstName);
         }
     }
+
+    @And("Patricia is on the participants overview page")
+    public void patriciaIsOnThePatricipantsOverviewPage() {
+        webDriver().navigate().to("http://localhost:8098/#/participant");
+    }
+
+
+    @When("Patricia opens {string}'s detail page")
+    public void patriciaOpensDetailPage(String firstName) {
+        webDriver().findElement(By.xpath("//*[@id=\"participantTable\"]/tbody/tr")).click();
+    }
 }
