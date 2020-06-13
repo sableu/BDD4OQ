@@ -17,9 +17,8 @@ import static oq_glue_code.TestContext.*;
 
 
 public class GeneralStepDefs {
-
     @Before
-    public void setupDriver() {
+    public void setup() {
         webDriver().navigate().to("about:blank");
     }
 
