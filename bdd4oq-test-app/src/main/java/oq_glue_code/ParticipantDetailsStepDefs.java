@@ -1,6 +1,7 @@
 package oq_glue_code;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
@@ -85,5 +86,23 @@ public class ParticipantDetailsStepDefs {
     @Then("{string}'s baseline weight entry should be displayed on that page")
     public void baselineWeightEntryShouldBeDisplayedOnThatPage(String firstName) {
         assertThat(webDriver().findElement(By.id("weight")).getAttribute("value"), is(participantBaselineWeightMeasurement.weight.toString()));
+    }
+
+    @Given("{string} did not give her consent so far")
+    public void did_not_give_her_consent_so_far(String string) {
+        // ToDo Write code here that turns the phrase above into concrete actions
+    }
+
+    @When("Patricia registers that {string}'gave her consent")
+    public void patricia_registers_that_gave_her_consent(String string) {
+        // ToDo Write code here that turns the phrase above into concrete actions
+    }
+    @When("she displays {string}'s details")
+    public void she_displays_s_details(String string) {
+        // ToDo Write code here that turns the phrase above into concrete actions
+    }
+    @Then("Patricia should see on the participant detail page that the consent was given.")
+    public void patricia_should_see_on_the_participant_detail_page_that_the_consent_was_given() {
+        // ToDo Write code here that turns the phrase above into concrete actions
     }
 }
