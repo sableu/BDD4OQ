@@ -8,6 +8,7 @@ public class ParticipantDto {
     public String firstName;
     public String birthday;
     public String gender;
+    public Boolean consent;
 
     public static ParticipantDto fromParticipant(Participant participant){
         ParticipantDto participantDto = new ParticipantDto();
@@ -16,10 +17,18 @@ public class ParticipantDto {
         participantDto.firstName = participant.getFirstName();
         participantDto.birthday = participant.getBirthday();
         participantDto.gender = participant.getGender();
+        participantDto.consent = participant.getConsent();
         return participantDto;
     }
 
     public Participant toParticipant(){
-        return new Participant(firstName, lastName, birthday, gender);
+      return new Participant(firstName, lastName, birthday, gender, consent);
+    }
+
+    public void updateParticipant(Participant participant){
+        participant.setFirstName(firstName);
+        participant.setLastName(lastName);
+        participant.setGender(gender);
+        participant.setConsent(consent);
     }
 }

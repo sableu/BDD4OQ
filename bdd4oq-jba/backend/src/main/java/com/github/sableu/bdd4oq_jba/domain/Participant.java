@@ -1,5 +1,7 @@
 package com.github.sableu.bdd4oq_jba.domain;
 
+import com.github.sableu.bdd4oq_jba.controller.ParticipantDto;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,15 +20,17 @@ public class Participant {
     private String lastName;
     private String birthday;
     private String gender;
+    private Boolean consent;
 
     protected Participant() {
     }
 
-    public Participant(String firstName, String lastName, String birthday, String gender) {
+    public Participant(String firstName, String lastName, String birthday, String gender, Boolean consent) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthday = birthday;
         this.gender = gender;
+        this.consent = consent;
     }
 
     public Long getId() {
@@ -37,8 +41,16 @@ public class Participant {
         return firstName;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
     public String getLastName() {
         return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getBirthday() {
@@ -56,4 +68,14 @@ public class Participant {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+    public Boolean getConsent() {
+        return consent;
+    }
+
+    public void setConsent(Boolean consent) {
+        this.consent = consent;
+    }
+
+
 }

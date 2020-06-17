@@ -21,16 +21,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.net.ResponseCache;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(
@@ -90,7 +87,7 @@ public class BackendControllerTest {
     public void getParticipantById() {
 
         // add to db
-        Participant peter = participantRepository.save(new Participant("Peter", "Parker", "03.05.1995", "male"));
+        Participant peter = participantRepository.save(new Participant("Peter", "Parker", "03.05.1995", "male", true));
 
         RequestSender sender = when();
         Response response = sender.get("/api/participant/" + peter.getId());
@@ -102,13 +99,14 @@ public class BackendControllerTest {
         assertThat(maybePeter.lastName, is(peter.getLastName()));
         assertThat(maybePeter.birthday, is(peter.getBirthday()));
         assertThat(maybePeter.gender, is(peter.getGender()));
+        assertThat(maybePeter.consent, is(peter.getConsent()));
     }
 
     @Test
     public void deleteParticipant() {
 
         // add to db
-        Participant peter = participantRepository.save(new Participant("Peter", "Parker", "03.05.1995", "male"));
+        Participant peter = participantRepository.save(new Participant("Peter", "Parker", "03.05.1995", "male", false));
 
         RequestSender sender = when();
         Response response = sender.delete("/api/participant/" + peter.getId());
@@ -131,9 +129,9 @@ public class BackendControllerTest {
     public void getParticipants() {
 
         // add to db
-        Participant steve = participantRepository.save(new Participant("Steve", "Rodgers", "04.07.1920", "male"));
-        Participant clinton = participantRepository.save(new Participant("Clinton", "Barton", "01.06.1973", "male"));
-        Participant natasha = participantRepository.save(new Participant("Natasha", "Romanova", "18.07.1975", "female"));
+        Participant steve = participantRepository.save(new Participant("Steve", "Rodgers", "04.07.1920", "male", true));
+        Participant clinton = participantRepository.save(new Participant("Clinton", "Barton", "01.06.1973", "male", false));
+        Participant natasha = participantRepository.save(new Participant("Natasha", "Romanova", "18.07.1975", "female", true));
 
         RequestSender sender = when();
         Response response = sender.get("/api/participant");
@@ -141,7 +139,7 @@ public class BackendControllerTest {
         vResponse.statusCode(HttpStatus.SC_OK);
         List<ParticipantDto> avengers = vResponse.extract().body().jsonPath().getList(".", ParticipantDto.class);
 
-        assertThat(avengers.size(), is(3));
+        assertThat(avengers.size(), greaterThanOrEqualTo(3));
 
         checkParticipant(getParicipantWithId(avengers, steve.getId()), steve);
         checkParticipant(getParicipantWithId(avengers, clinton.getId()), clinton);
@@ -158,6 +156,7 @@ public class BackendControllerTest {
         assertThat(maybeParticipant.lastName, is(participant.getLastName()));
         assertThat(maybeParticipant.birthday, is(participant.getBirthday()));
         assertThat(maybeParticipant.gender, is(participant.getGender()));
+        assertThat(maybeParticipant.consent, is(participant.getConsent()));
     }
 
     @Test
@@ -172,7 +171,7 @@ public class BackendControllerTest {
     public void getParticipantByAttributes() {
 
         // add to db
-        Participant peter = participantRepository.save(new Participant("Peter", "Parker", "03.05.1995", "male"));
+        Participant peter = participantRepository.save(new Participant("Peter", "Parker", "03.05.1995", "male", false));
 
         // prepare http-request
         RequestSpecification request = given();
@@ -210,7 +209,7 @@ public class BackendControllerTest {
 
     @Test
     public void setBaselineWeightMeasurement() {
-        Participant petra = participantRepository.save(new Participant("Petra", "Parker", "03.05.1995", "female"));
+        Participant petra = participantRepository.save(new Participant("Petra", "Parker", "03.05.1995", "female", true));
 
         WeightEntryDto weightEntryDto = new WeightEntryDto();
         weightEntryDto.weight = 55.5;
@@ -236,7 +235,7 @@ public class BackendControllerTest {
 
     @Test
     public void setBaselineWeightMeasurementDeclined() {
-        Participant piotr = participantRepository.save(new Participant("Piotr", "Parker", "03.05.1995", "male"));
+        Participant piotr = participantRepository.save(new Participant("Piotr", "Parker", "03.05.1995", "male", true));
 
         WeightEntry firstEntry = weightEntryRepository.save(new WeightEntry(60d, "5.5.20, 4:30pm", "no comment", piotr.getId(), true));
 
@@ -257,7 +256,7 @@ public class BackendControllerTest {
 
     @Test
     public void getBaselineWeightMeasurementByParticipant() {
-        Participant isabella = participantRepository.save(new Participant("Isabella", "Parker", "03.05.1995", "female"));
+        Participant isabella = participantRepository.save(new Participant("Isabella", "Parker", "03.05.1995", "female", true));
         WeightEntry weightEntryIsabella = weightEntryRepository.save(new WeightEntry(54.8d, "5.6.20, 2:30pm", "no comment", isabella.getId(), true));
 
         // prepare http-request
@@ -278,4 +277,34 @@ public class BackendControllerTest {
         assertThat(maybeIsabellaBaselineMeasurement.dateTime, is(weightEntryIsabella.getDateTime()));
         assertThat(maybeIsabellaBaselineMeasurement.comment, is(weightEntryIsabella.getComment()));
     }
+
+    @Test
+    public void updateParticipant() {
+
+        // add to db
+        Participant pietro = participantRepository.save(new Participant("Pietro", "Maximoff", "12.12.1989", "male", false));
+
+        ParticipantDto participantDto = ParticipantDto.fromParticipant(pietro);
+        participantDto.consent = true;
+
+
+        RequestSpecification request = given();
+        request.contentType(ContentType.JSON);
+        request.body(participantDto);
+        RequestSender sender = request.when();
+        Response response = sender.put("/api/participant/"+ pietro.getId());
+
+        ValidatableResponse vResponse = response.then();
+        vResponse.statusCode(HttpStatus.SC_OK);
+
+        Participant updatedPietro = participantRepository.findById(pietro.getId()).get();
+
+        assertThat(updatedPietro.getLastName(), is(participantDto.lastName));
+        assertThat(updatedPietro.getFirstName(), is(participantDto.firstName));
+        assertThat(updatedPietro.getBirthday(), is(participantDto.birthday));
+        assertThat(updatedPietro.getGender(), is(participantDto.gender));
+        assertThat(updatedPietro.getConsent(), is(participantDto.consent));
+    }
+
+
 }
