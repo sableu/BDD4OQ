@@ -15,8 +15,6 @@ Feature: Consent management
   |0.0.0.2|FS initial version reviewed    |Patricia Walker    |11-Jun-2020|wp      |
   |0.0.1.0|FS initial version approved    |Hank McKoy         |11-Jun-2020|mh      |
   |0.0.1.1|FS adapted as Test script (TS) |Andreas Hosbach    |15-Jun-2020|ha      |
-  |0.0.1.2|TS reviewed                    |Patricia Walker    |15-Jun-2020|wp      |
-  |1.0.0.0|TS approved  --> ready for OQ  |Hank McKoy         |15-Jun-2020|mh      |
   ```
 
   Size:
