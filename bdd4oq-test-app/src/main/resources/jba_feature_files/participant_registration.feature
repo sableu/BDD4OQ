@@ -12,10 +12,10 @@ Feature: Registration of a participant
   ```
   |Sig. V.|Description                   |Name               |Date       |dig.Sig.|
   |-------|------------------------------|-------------------|-----------|--------|
+  |0.0.1.2|TS reviewed                   |Patricia Walker    |25-May-2020|wp      |
   |0.1.0.0|TS approved                   |Hank McKoy         |25-May-2020|mh      |
   |0.1.0.1|FS bddoq-51 included          |Sabrina Leuenberger|28-May-2020|le      |
   |0.1.0.2|FS reviewed                   |Patricia Walker    |29-May-2020|wp      |
-  |0.0.1.2|TS reviewed                   |Patricia Walker    |24-May-2020|wp      |
   |0.1.1.0|FS approved                   |Hank McKoy         |29-May-2020|mh      |
   |0.1.1.1|FS adapted as Test script (TS)|Andreas Hosbach    |03-Jun-2020|ha      |
   |0.1.1.2|TS reviewed                   |Patricia Walker    |04-Jun-2020|wp      |
