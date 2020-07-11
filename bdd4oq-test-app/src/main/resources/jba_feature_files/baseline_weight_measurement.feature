@@ -48,7 +48,7 @@ Feature: Setting the baseline weight measurement
     Then "Ava"'s baseline weight entry should be displayed on that page
 
   @Ignore
-  Scenario: Denial or setting of the baseline weight measurement when it already exists.
+  Scenario: Denial of setting the baseline weight measurement when it already exists.
 
     Given Ava with first name "Ava", last name "Johnson", birthday "01.01.1989", gender "female" is registered
     And Ava has already a baseline measurement
