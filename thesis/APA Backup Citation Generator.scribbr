@@ -1,6 +1,6 @@
 {
   "style": "apa",
-  "createdAt": "2020-07-20T15:39:55.159Z",
+  "createdAt": "2020-07-20T16:00:40.721Z",
   "sources": [
     {
       "url": "https://www.ivtnetwork.com/journal-validation-technology/journal-of-validation-technology-3004",
@@ -696,41 +696,6 @@
       ]
     },
     {
-      "url": "https://www.postgresql.org/",
-      "form": "webpage",
-      "meta": {
-        "hasNoAuthor": false,
-        "hasNoIssued": false
-      },
-      "type": "webpage",
-      "title": "PostgreSQL: The world's most advanced open source database",
-      "format": "digital",
-      "issued": [
-        {
-          "day": "1",
-          "year": "1996",
-          "month": "1"
-        }
-      ],
-      "authors": [
-        {
-          "id": "93f195f3-ca4c-11ea-ac58-336f92b7b353",
-          "type": "organization",
-          "name": "The PostgreSQL Global Development Group",
-          "screenName": "",
-          "role": "author",
-          "order": 0
-        }
-      ],
-      "accessed": [
-        {
-          "day": "27",
-          "year": "2020",
-          "month": "03"
-        }
-      ]
-    },
-    {
       "url": "https://spring.io/",
       "form": "webpage",
       "meta": {
@@ -795,47 +760,6 @@
       "accessed": [
         {
           "day": "29",
-          "year": "2020",
-          "month": "03"
-        }
-      ]
-    },
-    {
-      "url": "https://cli.vuejs.org/",
-      "form": "webpage",
-      "meta": {
-        "hasNoAuthor": false,
-        "hasNoIssued": false
-      },
-      "type": "webpage",
-      "title": "Vue CLI",
-      "format": "digital",
-      "issued": [
-        {
-          "day": "1",
-          "year": "2018",
-          "month": "1"
-        }
-      ],
-      "authors": [
-        {
-          "id": "93f195f6-ca4c-11ea-ac58-336f92b7b353",
-          "type": "person",
-          "title": "",
-          "initials": "",
-          "given": "E",
-          "particle": "",
-          "family": "You",
-          "suffix": "",
-          "screenName": "",
-          "order": 1,
-          "role": "author",
-          "isAdvanced": false
-        }
-      ],
-      "accessed": [
-        {
-          "day": "27",
           "year": "2020",
           "month": "03"
         }
@@ -1371,47 +1295,6 @@
       "meta": {
         "hasNoAuthor": false,
         "hasNoIssued": true
-      },
-      "form": "webpage"
-    },
-    {
-      "type": "webpage",
-      "title": "Welcome to Apache Maven",
-      "url": "https://maven.apache.org/",
-      "authors": [
-        {
-          "id": "f6a29c50-ca5e-11ea-ac58-336f92b7b353",
-          "type": "organization",
-          "name": "Apache Maven Project",
-          "screenName": "",
-          "role": "author",
-          "order": 1,
-          "title": "",
-          "given": "",
-          "particle": "",
-          "family": "",
-          "suffix": "",
-          "isAdvanced": false,
-          "initials": ""
-        }
-      ],
-      "issued": [
-        {
-          "year": "2020",
-          "month": "07",
-          "day": "14"
-        }
-      ],
-      "accessed": [
-        {
-          "year": "2020",
-          "month": "07",
-          "day": "20"
-        }
-      ],
-      "meta": {
-        "hasNoAuthor": false,
-        "hasNoIssued": false
       },
       "form": "webpage"
     },
