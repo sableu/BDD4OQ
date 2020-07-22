@@ -60,7 +60,6 @@ public class TestContext {
 
         RestAssured.baseURI = "http://localhost";
         RestAssured.port = 8098;
-
     }
 
     private WebDriver getWebDriver() {

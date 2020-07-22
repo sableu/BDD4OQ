@@ -18,10 +18,21 @@ export default {
         return AXIOS.post('/participant', data);
     },
     getParticipant(participantId) {
-            return AXIOS.get('/participant/'+participantId);
+        return AXIOS.get('/participant/'+participantId);
     },
     getParticipants() {
-            return AXIOS.get('/participant');
+        return AXIOS.get('/participant');
+    },
+    updateParticipant(participant, participantId) {
+        var data = {
+            lastName: participant.lastName,
+            firstName: participant.firstName,
+            birthday: participant.birthday,
+            gender: participant.gender,
+            consent: participant.consent
+        }
+        console.log(data)
+        return AXIOS.put('/participant/'+ participantId, data);
     },
     setBaselineMeasurement(baselineWeightEntry, participantId) {
             var data = {

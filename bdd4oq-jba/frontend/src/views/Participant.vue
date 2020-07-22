@@ -1,6 +1,7 @@
 <template>
     <div class="participant">
         <h1>Participant</h1>
+        <br/>
         <b-container fluid>
             <b-row>
                 <b-col sm="3"> <label>ID</label> </b-col>
@@ -17,6 +18,14 @@
         </b-container>
          <b-alert :show="showParticipantError" variant="danger">{{participantErrorMsg}}</b-alert>
         <br/>
+        <h4>Consent</h4>
+        <b-container fluid>
+            <b-row>
+                <b-col sm="3"> <b-form-checkbox id="participantConsent" v-model="participant.consent" name="participantConsent" value="true" unchecked-value="false">Consent given</b-form-checkbox> </b-col>
+                <b-col sm="3"> <b-button variant="primary" id="updateConsent" @click="updateConsent()">Update</b-button> </b-col>
+            </b-row>
+        </b-container>
+        <br/>
         <h4>Baseline Weight Measurement</h4>
         <b-container fluid>
             <b-row>
@@ -26,7 +35,7 @@
                 <b-col sm="3"> </b-col>
             </b-row>
             <b-row>
-                <b-col sm="3"> <b-form-input :disabled="baselineWeightInputDisabled" id="weight" type="number" v-model="baselineWeightEntry.weight"/> </b-col>
+                <b-col sm="3"> <b-form-input :disabled="baselineWeightInputDisabled" id="weight" name = "weight" type="number" v-model="baselineWeightEntry.weight"/> </b-col>
                 <b-col sm="3"> <b-form-input :disabled="baselineWeightInputDisabled" id="dateTime" v-model="baselineWeightEntry.dateTime"/> </b-col>
                 <b-col sm="3"> <b-form-input :disabled="baselineWeightInputDisabled" id="comment" v-model="baselineWeightEntry.comment"/> </b-col>
                 <b-col sm="3"> <b-button :disabled="setBaselineWeightBtnDisabled" variant="primary" id="setBaselineWeight" @click="setBaselineMeasurement()">Set</b-button> </b-col>
@@ -49,7 +58,8 @@
                     firstName: '',
                     lastName:'',
                     birthday:'',
-                    gender:''
+                    gender:'',
+                    consent:'false'
                 },
                 baselineWeightEntry: {
                     weight: '',
@@ -87,6 +97,7 @@
                     this.participant.lastName = response.data.lastName;
                     this.participant.birthday = response.data.birthday;
                     this.participant.gender = response.data.gender;
+                    this.participant.consent = response.data.consent;
                 })
                 .catch(e => {
                     console.log(e);
@@ -94,6 +105,7 @@
                     this.participant.lastName = '';
                     this.participant.birthday = '';
                     this.participant.gender = '';
+                    this.participant.consent = 'false';
                     this.participantErrorMsg = 'Could not load participant';
                     this.showParticipantError = true;
                 })
@@ -125,6 +137,14 @@
                     console.log(e);
                     this.baselineWarningMsg = 'Failed to set baseline';
                     this.showBaselineWarning = true;
+                })
+            },
+            updateConsent(){
+                api.updateParticipant(this.participant, this.participantId).then(response => {
+                    console.log(response);
+                })
+                .catch(e => {
+                    console.log(e);
                 })
             }
         }

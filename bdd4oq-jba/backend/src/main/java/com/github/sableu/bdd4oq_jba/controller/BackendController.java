@@ -80,6 +80,18 @@ public class BackendController {
         participantRepository.deleteById(id);
     }
 
+    @RequestMapping(path = "/participant/{id}", method = RequestMethod.PUT)
+    @ResponseStatus(HttpStatus.OK)
+    public void updateParticipant(@PathVariable("id") Long id, @RequestBody ParticipantDto participantDto) {
+        logger.info("UPDATE /participant/" + id);
+        if (!participantRepository.existsById(id)) {
+            throw new ParticipantNotFoundException("The participant with id " + id + "could not be found");
+        }
+        Participant participantToUpdate = participantRepository.findById(id).get();
+        participantDto.updateParticipant(participantToUpdate);
+        participantRepository.save(participantToUpdate);
+    }
+
     @RequestMapping(path = "/participant/{participantId}/weights/baseline", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public long addPWeight(@PathVariable("participantId") Long participantId, @RequestBody WeightEntryDto weightEntryDto) {

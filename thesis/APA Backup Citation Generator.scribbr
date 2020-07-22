@@ -1,0 +1,2913 @@
+{
+  "style": "apa",
+  "createdAt": "2020-07-20T16:00:40.721Z",
+  "sources": [
+    {
+      "url": "https://www.ivtnetwork.com/journal-validation-technology/journal-of-validation-technology-3004",
+      "form": "journal-article",
+      "page": {
+        "to": "76",
+        "from": "73"
+      },
+      "type": "article-journal",
+      "issue": "4",
+      "title": "Practical Use of Automated Tools in Computer System Compliance",
+      "format": "digital",
+      "issued": [
+        {
+          "year": "2009"
+        }
+      ],
+      "status": "published",
+      "volume": {
+        "from": "15"
+      },
+      "authors": [
+        {
+          "id": "93f0d2a0-ca4c-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "J",
+          "particle": "",
+          "family": "Burnett",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false
+        }
+      ],
+      "uriType": "url",
+      "containerTitle": "Journal of Validation Technology"
+    },
+    {
+      "url": "https://github.com/",
+      "form": "webpage",
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "type": "webpage",
+      "title": "Build for developers",
+      "format": "digital",
+      "issued": [
+        {
+          "day": "1",
+          "year": "2020",
+          "month": "1"
+        }
+      ],
+      "authors": [
+        {
+          "id": "93f0d2a1-ca4c-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "GitHub, Inc.",
+          "screenName": "",
+          "role": "author",
+          "order": 0
+        }
+      ],
+      "accessed": [
+        {
+          "day": "27",
+          "year": "2020",
+          "month": "03"
+        }
+      ]
+    },
+    {
+      "url": "https://www.guru99.com/hp-alm-introduction.html",
+      "form": "webpage",
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "type": "webpage",
+      "title": "Introduction to HP ALM (Quality Center)",
+      "format": "digital",
+      "issued": [
+        {
+          "day": "19",
+          "year": "2020",
+          "month": "03"
+        }
+      ],
+      "authors": [
+        {
+          "id": "93f0f9b0-ca4c-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Guru99",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "accessed": [
+        {
+          "day": "03",
+          "year": "2020",
+          "month": "04"
+        }
+      ]
+    },
+    {
+      "url": "https://www.guru99.com/difference-automated-vs-manual-testing.html",
+      "form": "webpage",
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "type": "webpage",
+      "title": "Automation Testing Vs. Manual Testing: What’s the Difference?",
+      "format": "digital",
+      "issued": [
+        {
+          "day": "23",
+          "year": "2020",
+          "month": "03"
+        }
+      ],
+      "authors": [
+        {
+          "id": "93f0f9b1-ca4c-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Guru99",
+          "screenName": "",
+          "role": "author",
+          "order": 0
+        }
+      ],
+      "accessed": [
+        {
+          "day": "03",
+          "year": "2020",
+          "month": "04"
+        }
+      ]
+    },
+    {
+      "url": "https://de.itpedia.nl/2017/10/11/wat-is-handmatig-testen/",
+      "form": "webpage",
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "type": "webpage",
+      "title": "Was ist manuelles Testen?",
+      "format": "digital",
+      "issued": [
+        {
+          "day": "11",
+          "year": "2017",
+          "month": "10"
+        }
+      ],
+      "authors": [
+        {
+          "id": "93f0f9b2-ca4c-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "W.",
+          "given": "W",
+          "particle": "",
+          "family": "Hoogenraad",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false
+        }
+      ],
+      "accessed": [
+        {
+          "day": "03",
+          "year": "2020",
+          "month": "04"
+        }
+      ]
+    },
+    {
+      "form": "book",
+      "meta": {
+        "isEBook": false,
+        "hasNoIssued": false
+      },
+      "page": {
+        "to": "",
+        "from": ""
+      },
+      "type": "book",
+      "title": "GAMP 5 - A Risk-Based Approach to Compliant GxP Computerized Systems",
+      "format": "print",
+      "issued": [
+        {
+          "year": "2008"
+        },
+        {
+          "year": ""
+        }
+      ],
+      "volume": {
+        "to": ""
+      },
+      "authors": [
+        {
+          "id": "93f0f9b3-ca4c-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "ISPE",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "uriType": "doi",
+      "publisher": {
+        "name": "ISPE",
+        "country": "United States of America",
+        "locality": "North Bethesda"
+      }
+    },
+    {
+      "url": "https://www.axelerant.com/resources/team-blog/setup-for-selenium-with-cucumber-using-maven",
+      "form": "webpage",
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "type": "webpage",
+      "title": "Setup for Selenium with Cucumber Using Maven",
+      "format": "digital",
+      "issued": [
+        {
+          "day": "05",
+          "year": "2018",
+          "month": "02"
+        }
+      ],
+      "authors": [
+        {
+          "id": "93f120c0-ca4c-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "N",
+          "particle": "",
+          "family": "Jain",
+          "suffix": "",
+          "screenName": "",
+          "order": 2,
+          "role": "author",
+          "isAdvanced": false
+        },
+        {
+          "id": "93f120c1-ca4c-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "T",
+          "particle": "",
+          "family": "Sawant",
+          "suffix": "",
+          "screenName": "",
+          "order": 3,
+          "role": "author",
+          "isAdvanced": false
+        }
+      ],
+      "accessed": [
+        {
+          "day": "03",
+          "year": "2020",
+          "month": "04"
+        }
+      ]
+    },
+    {
+      "url": "https://www.johner-institut.de/blog/regulatory-affairs/computer-system-validation-csv/",
+      "form": "webpage",
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "type": "webpage",
+      "title": "Computer System Validation CSV",
+      "format": "digital",
+      "issued": [
+        {
+          "day": "5",
+          "year": "2017",
+          "month": "4"
+        }
+      ],
+      "authors": [
+        {
+          "id": "93f120c2-ca4c-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "C",
+          "particle": "",
+          "family": "Johner",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false
+        }
+      ],
+      "accessed": [
+        {
+          "day": "29",
+          "year": "2020",
+          "month": "03"
+        }
+      ]
+    },
+    {
+      "form": "book",
+      "meta": {
+        "hasNoIssued": false
+      },
+      "page": {
+        "from": ""
+      },
+      "type": "book",
+      "title": "Discovery - Explore behaviour using examples",
+      "format": "print",
+      "issued": [
+        {
+          "year": "2018"
+        },
+        {
+          "year": ""
+        }
+      ],
+      "volume": {
+        "to": ""
+      },
+      "authors": [
+        {
+          "id": "93f120c3-ca4c-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "G",
+          "particle": "",
+          "family": "Nagy",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false
+        },
+        {
+          "id": "93f147d0-ca4c-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "S",
+          "particle": "",
+          "family": "Rose",
+          "suffix": "",
+          "screenName": "",
+          "order": 2,
+          "role": "author",
+          "isAdvanced": false
+        }
+      ],
+      "publisher": {
+        "name": "https://leanpub.com/",
+        "country": "Canada",
+        "locality": "Victoria"
+      }
+    },
+    {
+      "form": "book",
+      "meta": {
+        "hasNoIssued": false
+      },
+      "type": "book",
+      "title": "Writing Great Specifications",
+      "format": "print",
+      "issued": [
+        {
+          "year": "2018"
+        },
+        {}
+      ],
+      "authors": [
+        {
+          "id": "93f16ee0-ca4c-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "K.",
+          "particle": "",
+          "family": "Nicieja",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false
+        }
+      ],
+      "language": "en",
+      "publisher": {
+        "name": "Manning Publications",
+        "country": "NY, USA",
+        "locality": "Shelter Island"
+      }
+    },
+    {
+      "url": "http://www.bpmn.org/",
+      "form": "webpage",
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "type": "webpage",
+      "title": "Business Process Model and Notation",
+      "format": "digital",
+      "issued": [
+        {
+          "day": "1",
+          "year": "1997",
+          "month": "1"
+        }
+      ],
+      "authors": [
+        {
+          "id": "93f16ee1-ca4c-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Object Management Group",
+          "screenName": "",
+          "role": "author",
+          "order": 0
+        }
+      ],
+      "accessed": [
+        {
+          "day": "27",
+          "year": "2020",
+          "month": "03"
+        }
+      ]
+    },
+    {
+      "url": "https://www.qualitestgroup.com/white-papers/functional-testing-vs-usability-testing/",
+      "form": "webpage",
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "type": "webpage",
+      "title": "Functional Testing vs. Usability Testing",
+      "format": "digital",
+      "issued": [
+        {
+          "day": "",
+          "year": "",
+          "month": ""
+        }
+      ],
+      "authors": [
+        {
+          "id": "93f16ee2-ca4c-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Qualitest",
+          "screenName": "",
+          "role": "author",
+          "order": 0
+        }
+      ],
+      "accessed": [
+        {
+          "day": "03",
+          "year": "2020",
+          "month": "04"
+        }
+      ]
+    },
+    {
+      "url": "http://scenarioo.org/",
+      "form": "webpage",
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "type": "webpage",
+      "title": "Scenarioo",
+      "format": "digital",
+      "issued": [
+        {
+          "day": "",
+          "year": "",
+          "month": ""
+        }
+      ],
+      "authors": [
+        {
+          "id": "a5cfb150-ca5e-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Scenarioo",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "accessed": [
+        {
+          "day": "27",
+          "year": "2020",
+          "month": "03"
+        }
+      ]
+    },
+    {
+      "url": "https://www.selenium.dev/",
+      "form": "webpage",
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "type": "webpage",
+      "title": "Selenium automates browsers. That's it!",
+      "format": "digital",
+      "issued": [
+        {
+          "day": "",
+          "year": "",
+          "month": ""
+        }
+      ],
+      "authors": [
+        {
+          "id": "93f16ee4-ca4c-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Selenium",
+          "screenName": "",
+          "role": "author",
+          "order": 0
+        }
+      ],
+      "accessed": [
+        {
+          "day": "27",
+          "year": "2020",
+          "month": "03"
+        }
+      ]
+    },
+    {
+      "form": "book",
+      "meta": {
+        "hasNoIssued": false
+      },
+      "page": {
+        "from": ""
+      },
+      "type": "book",
+      "title": "BDD in Action",
+      "format": "print",
+      "issued": [
+        {
+          "year": "2015"
+        },
+        {
+          "year": ""
+        }
+      ],
+      "volume": {
+        "to": ""
+      },
+      "authors": [
+        {
+          "id": "93f195f0-ca4c-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "J.F.",
+          "particle": "",
+          "family": "Smart",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false
+        }
+      ],
+      "language": "en",
+      "publisher": {
+        "name": "Manning Publications",
+        "country": "NY, USA",
+        "locality": "Shelter Island"
+      }
+    },
+    {
+      "url": "https://cucumber.io/",
+      "form": "webpage",
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "type": "webpage",
+      "title": "Tools & techniques that elevate teams to greatness",
+      "format": "digital",
+      "issued": [
+        {
+          "day": "1",
+          "year": "2020",
+          "month": "1"
+        }
+      ],
+      "authors": [
+        {
+          "id": "93f195f1-ca4c-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "SmartBear Software",
+          "screenName": "",
+          "role": "author",
+          "order": 0
+        }
+      ],
+      "accessed": [
+        {
+          "day": "27",
+          "year": "2020",
+          "month": "03"
+        }
+      ]
+    },
+    {
+      "url": "https://maven.apache.org/",
+      "form": "webpage",
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "type": "webpage",
+      "title": "Maven",
+      "format": "digital",
+      "issued": [
+        {
+          "day": "1",
+          "year": "2002",
+          "month": "1"
+        }
+      ],
+      "authors": [
+        {
+          "id": "93f195f2-ca4c-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "The Apache Software Foundation",
+          "screenName": "",
+          "role": "author",
+          "order": 1
+        }
+      ],
+      "accessed": [
+        {
+          "day": "27",
+          "year": "2020",
+          "month": "03"
+        }
+      ]
+    },
+    {
+      "url": "https://spring.io/",
+      "form": "webpage",
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "type": "webpage",
+      "title": "Spring makes Java...",
+      "format": "digital",
+      "issued": [
+        {
+          "day": "1",
+          "year": "2020",
+          "month": "1"
+        }
+      ],
+      "authors": [
+        {
+          "id": "93f195f4-ca4c-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "VMware",
+          "screenName": "",
+          "role": "author",
+          "order": 1
+        }
+      ],
+      "accessed": [
+        {
+          "day": "27",
+          "year": "2020",
+          "month": "03"
+        }
+      ]
+    },
+    {
+      "url": "https://de.wikipedia.org/w/index.php?title=GxP&oldid=178646512",
+      "form": "webpage",
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "type": "webpage",
+      "title": "GxP",
+      "format": "digital",
+      "issued": [
+        {
+          "day": "26",
+          "year": "2018",
+          "month": "06"
+        }
+      ],
+      "authors": [
+        {
+          "id": "93f195f5-ca4c-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Wikipedia",
+          "screenName": "",
+          "role": "author",
+          "order": 0
+        }
+      ],
+      "accessed": [
+        {
+          "day": "29",
+          "year": "2020",
+          "month": "03"
+        }
+      ]
+    },
+    {
+      "type": "webpage",
+      "title": "Cucumber-Scenarioo-plugin",
+      "url": "https://github.com/andreashosbach/cucumber-reporter",
+      "authors": [
+        {
+          "id": "05ee96c0-ca53-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "A",
+          "particle": "",
+          "family": "Hosbach",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "20"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "05",
+          "day": "04"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "3 open source behavior-driven development tools",
+      "url": "https://opensource.com/article/19/2/behavior-driven-development-tools",
+      "authors": [
+        {
+          "id": "799302d0-ca55-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "C",
+          "particle": "",
+          "family": "Ketterlin Fisher",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2019",
+          "month": "02",
+          "day": "28"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "07"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "draw.io - we love diagrams",
+      "url": "https://drawio-app.com/",
+      "authors": [
+        {
+          "id": "9163efc0-ca58-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "draw.io",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "07"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Microsoft Teams",
+      "url": "https://www.microsoft.com/en/microsoft-365/microsoft-teams/group-chat-software",
+      "authors": [
+        {
+          "id": "3855f940-ca59-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Microsoft",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "07"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Confluence - Accomplish more together",
+      "url": "https://www.atlassian.com/software/confluence",
+      "authors": [
+        {
+          "id": "796cb950-ca59-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Atlassian",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "07"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Jira | Issue & Project Tracking Software",
+      "url": "https://www.atlassian.com/software/jira",
+      "authors": [
+        {
+          "id": "af0dd1c0-ca59-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Atlassian",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "07"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "The C4 model for visualising software architecture",
+      "url": "https://c4model.com/",
+      "authors": [
+        {
+          "id": "61c6b020-ca5a-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "S",
+          "particle": "",
+          "family": "Brown",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "04",
+          "day": "06"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "IntelliJ IDEA: The Java IDE for Professional Developers",
+      "url": "https://www.jetbrains.com/idea/",
+      "authors": [
+        {
+          "id": "e10351e0-ca5a-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Jet Brains",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2019",
+          "month": "07",
+          "day": "24"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "04",
+          "day": "06"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Prebuilt OpenJDK Binaries for Free!",
+      "url": "https://adoptopenjdk.net/index.html?variant=openjdk14&jvmVariant=hotspot",
+      "authors": [
+        {
+          "id": "5de2c9c0-ca5b-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "AdoptOpenJDK",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "04",
+          "day": "06"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "OpenJDK",
+      "url": "https://en.wikipedia.org/wiki/OpenJDK",
+      "authors": [
+        {
+          "id": "731cb820-ca5e-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Wikipedia",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "04",
+          "day": "06"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Difference between OpenJDK and Adoptium/AdoptOpenJDK",
+      "url": "https://stackoverflow.com/questions/52431764/",
+      "authors": [
+        {
+          "id": "b38a03b0-ca5c-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "stackoverflow",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2018",
+          "month": "09",
+          "day": "20"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "04",
+          "day": "06"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "ChromeDriver - WebDriver for Chrome",
+      "url": "https://chromedriver.chromium.org/",
+      "authors": [
+        {
+          "id": "4963d4b0-ca5d-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Chromium",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "04",
+          "day": "06"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Setup of Scenarioo Viewer Web App",
+      "url": "http://scenarioo.org/docs/master/tutorial/Scenarioo-Viewer-Web-Application-Setup.html",
+      "authors": [
+        {
+          "id": "ad6ccf20-ca5d-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Scenarioo",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "29"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "book",
+      "format": "print",
+      "title": "The Cucumber for Java Book",
+      "page": {
+        "from": "",
+        "to": ""
+      },
+      "authors": [
+        {
+          "id": "98808a90-ca65-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "S.",
+          "particle": "",
+          "family": "Rose",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        },
+        {
+          "id": "98808a91-ca65-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "M.",
+          "particle": "",
+          "family": "Wynne",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        },
+        {
+          "id": "98808a92-ca65-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "A.",
+          "particle": "",
+          "family": "Hellesoy",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        }
+      ],
+      "volume": {
+        "to": ""
+      },
+      "publisher": {
+        "type": "organization",
+        "name": "Pragmatic Bookshelf",
+        "country": "United States of America",
+        "locality": "Raleigh"
+      },
+      "issued": [
+        {
+          "year": "2015"
+        },
+        {}
+      ],
+      "uriType": "doi",
+      "meta": {
+        "isEBook": false,
+        "hasNoIssued": false
+      },
+      "form": "book",
+      "language": "en",
+      "attributions": [
+        {
+          "source": "books.google.com",
+          "href": "https://books.google.nl/books?id=zQ2voQEACAAJ"
+        }
+      ]
+    },
+    {
+      "type": "article-journal",
+      "status": "published",
+      "title": "GAMP 5: Ten years on",
+      "page": {
+        "from": "18",
+        "to": "19"
+      },
+      "containerTitle": "Pharmaceutical Engineering",
+      "authors": [
+        {
+          "id": "c281e8b0-ca66-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "S",
+          "particle": "",
+          "family": "Wyn",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        }
+      ],
+      "volume": {
+        "from": "38"
+      },
+      "issue": "3",
+      "issued": [
+        {
+          "year": "2018"
+        }
+      ],
+      "uriType": "url",
+      "url": "https://ispe.org/pharmaceutical-engineering/may-june-2018",
+      "meta": {},
+      "form": "journal-article"
+    },
+    {
+      "type": "webpage",
+      "title": "What is GAMP®5 and how do I use it effectively?",
+      "url": "https://blog.montrium.com/experts/what-is-gamp5-and-how-do-i-use-it-effectively",
+      "authors": [
+        {
+          "id": "6f21a9d0-ca6b-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "C.",
+          "particle": "",
+          "family": "Plagiannos",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2015",
+          "month": "11",
+          "day": "30"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "20"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "article-journal",
+      "status": "published",
+      "title": "Good Laboratory Practice (GLP) - guidelines for the validation of computerised systems",
+      "page": {
+        "from": "208",
+        "to": "220"
+      },
+      "containerTitle": "The Quality Assurance Journal",
+      "authors": [
+        {
+          "id": "dd0fa451-ca6c-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "P. M.",
+          "particle": "",
+          "family": "Esch",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        },
+        {
+          "id": "dd0fa452-ca6c-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "G",
+          "particle": "",
+          "family": "Donzé",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        },
+        {
+          "id": "dd0fa453-ca6c-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "B",
+          "particle": "",
+          "family": "Eschbach",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        },
+        {
+          "id": "dd0fa454-ca6c-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "S",
+          "particle": "",
+          "family": "Hassler",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        },
+        {
+          "id": "dd0fa455-ca6c-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "L",
+          "particle": "",
+          "family": "Hutter",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        },
+        {
+          "id": "dd0fa456-ca6c-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "H. P.",
+          "particle": "",
+          "family": "Saxer",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        },
+        {
+          "id": "dd0fa457-ca6c-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "U",
+          "particle": "",
+          "family": "Timm",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        },
+        {
+          "id": "dd0fa458-ca6c-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "R",
+          "particle": "",
+          "family": "Zühlke",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        }
+      ],
+      "volume": {
+        "from": "11"
+      },
+      "issue": "3-4",
+      "issued": [
+        {
+          "year": 2007
+        }
+      ],
+      "uriType": "doi",
+      "doi": "10.1002/qaj.426",
+      "meta": {},
+      "form": "journal-article"
+    },
+    {
+      "type": "webpage",
+      "title": "Blaze IQ,OQ,PQ",
+      "url": "https://www.blazesystems.com/blaze-iq-oq-pq.html",
+      "authors": [
+        {
+          "id": "d0d27180-ca6d-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Blaze Systems",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "04",
+          "day": "19"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Introducing BDD",
+      "containerTitle": "Dan North & Associates",
+      "url": "https://dannorth.net/introducing-bdd/",
+      "authors": [
+        {
+          "id": "39afc040-ca82-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "D",
+          "particle": "",
+          "family": "North",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2006",
+          "month": "06",
+          "day": "05"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "06"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "What are the Three Amigos in Agile?",
+      "containerTitle": "Agile Alliance",
+      "url": "https://www.agilealliance.org/glossary/three-amigos",
+      "authors": [
+        {
+          "id": "6a30a1c0-ca83-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Agile Alliance",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2019",
+          "month": "09",
+          "day": "27"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "06"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Introduction to BDD Example Mapping",
+      "url": "https://cucumber.io/blog/bdd/example-mapping-introduction/",
+      "authors": [
+        {
+          "id": "ccbf5840-ca83-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "M.",
+          "particle": "",
+          "family": "Wynne",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "06"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "It's all in the mind(set): digital transformation in pharma",
+      "containerTitle": "Pharmafield",
+      "url": "https://pharmafield.co.uk/in_depth/its-all-in-the-mindset-digital-transformation-in-pharma/",
+      "authors": [
+        {
+          "id": "ee6d4ea0-ca8a-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "D.",
+          "particle": "",
+          "family": "Reilly",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "01"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "18"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Artificial Intelligence is changing Test Automation and Micro Focus is leading the way",
+      "containerTitle": "Micro Focus Community",
+      "url": "https://community.microfocus.com/t5/Application-Delivery-Management/Artificial-Intelligence-is-changing-Test-Automation-and-Micro/ba-p/2802102",
+      "authors": [
+        {
+          "id": "5b5ccf70-ca8d-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "A",
+          "particle": "",
+          "family": "Khan",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "02"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "20"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "What is Regression Testing? Definition, Test Cases (Example)",
+      "url": "https://www.guru99.com/regression-testing.html",
+      "authors": [
+        {
+          "id": "fe309e20-ca8d-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Guru99",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "15"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "13"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Informed Consent for Clinical Trials",
+      "containerTitle": "U.S. Food and Drug Administration",
+      "url": "https://www.fda.gov/patients/clinical-trials-what-patients-need-know/informed-consent-clinical-trials",
+      "authors": [
+        {
+          "id": "7e5f8f20-ca8e-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "FDA",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2018",
+          "month": "01",
+          "day": "04"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "10"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "How to click on hidden element in Selenium WebDriver",
+      "url": "https://medium.com/@hacker_girl/how-to-click-on-hidden-element-in-selenium-webdriver-873773dc333c",
+      "authors": [
+        {
+          "id": "e2ba04f0-ca8e-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Hacker Girl",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2016",
+          "month": "04",
+          "day": "23"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "17"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "JUnit vs. TestNG: Choosing a Framework for Unit Testing",
+      "containerTitle": "StickyMinds",
+      "url": "https://www.stickyminds.com/article/junit-vs-testng-choosing-framework-unit-testing",
+      "authors": [
+        {
+          "id": "e1f31600-ca8f-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "J",
+          "particle": "",
+          "family": "Ahmed",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2019",
+          "month": "11",
+          "day": "18"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "29"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Cucumber Open - Get Started with BDD Today",
+      "url": "https://cucumber.io/tools/cucumber-open/",
+      "authors": [
+        {
+          "id": "861ed390-ca90-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Cucumber",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "29"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Cucumber (software)",
+      "containerTitle": "Wikipedia",
+      "url": "https://en.wikipedia.org/w/index.php?title=Cucumber_(software)&oldid=956132812",
+      "authors": [
+        {
+          "id": "564a4cc0-ca91-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Wikipedia",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2020",
+          "month": "05",
+          "day": "11"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "29"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Selenium Webdriver Tutorial with Examples",
+      "containerTitle": "BrowserStack",
+      "url": "https://www.browserstack.com/guide/selenium-webdriver-tutorial",
+      "authors": [
+        {
+          "id": "9fe14230-ca91-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "J",
+          "particle": "",
+          "family": "Unadkat",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        },
+        {
+          "id": "b78b9bb0-ca91-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "P",
+          "particle": "",
+          "family": "Krishnakumar",
+          "suffix": "",
+          "screenName": "",
+          "order": 2,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2019",
+          "month": "07",
+          "day": "08"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "26"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Create Cucumber Test Runner class",
+      "containerTitle": "AutomationTestingHub",
+      "url": "http://www.automationtestinghub.com/cucumber-test-runner-class-junit/",
+      "authors": [
+        {
+          "id": "45f36ba0-ca95-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "",
+          "particle": "",
+          "family": "Anish",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2018",
+          "month": "03",
+          "day": "18"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "28"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Cucumber - JUnit Runner - Tutorialspoint",
+      "url": "https://www.tutorialspoint.com/cucumber/cucumber_junit_runner.htm",
+      "authors": [
+        {
+          "id": "bd35f7f0-ca95-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Tutorialspoint",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "28"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Exploring Glue Code with Cucumber-JVM",
+      "url": "https://www.coveros.com/exploring-glue-code-with-cucumber-jvm/",
+      "authors": [
+        {
+          "id": "d01eb540-ca96-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Coveros",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2014",
+          "month": "04",
+          "day": "14"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "28"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Cucumber - Gherkins - Tutorialspoint",
+      "url": "https://www.tutorialspoint.com/cucumber/cucumber_gherkins.htm",
+      "authors": [
+        {
+          "id": "f9c9ab70-ca96-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Tutorialspoint",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "28"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Selenium - Webdriver - Tutorialspoint",
+      "url": "https://www.tutorialspoint.com/selenium/selenium_webdriver.htm",
+      "authors": [
+        {
+          "id": "33c56b70-ca97-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Tutorialspoint",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "28"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "ChromeDriver Architecture",
+      "url": "https://groups.google.com/forum/#!msg/chromedriver-users/xVMy5OGLcl8/2JljtZ1FAAAJ",
+      "authors": [
+        {
+          "id": "da79f6c0-ca97-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "ChromeDriver Users",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2015",
+          "month": "06",
+          "day": "11"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "27"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "H2 Database Engine",
+      "url": "https://www.h2database.com/html/main.html",
+      "authors": [
+        {
+          "id": "9960f750-ca98-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "H2",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "28"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Spring Boot",
+      "containerTitle": "spring",
+      "url": "https://spring.io/projects/spring-boot",
+      "authors": [
+        {
+          "id": "3589ece0-ca99-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Spring",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "28"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "What is JPA? Introduction to the Java Persistence API",
+      "containerTitle": "InfoWorld",
+      "url": "https://www.infoworld.com/article/3379043/what-is-jpa-introduction-to-the-java-persistence-api.html",
+      "authors": [
+        {
+          "id": "79d12c60-ca99-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "M.",
+          "particle": "",
+          "family": "Tyson",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2019",
+          "month": "04",
+          "day": "02"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "18"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Spring Boot JPA - javatpoint",
+      "containerTitle": "www.javatpoint.com",
+      "url": "https://www.javatpoint.com/spring-boot-jpa",
+      "authors": [
+        {
+          "id": "de0c3350-ca99-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "javaTpoint",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "18"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Vue.js",
+      "url": "https://vuejs.org/",
+      "authors": [
+        {
+          "id": "277e1490-ca9a-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Vue.js",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "28"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Components groups",
+      "containerTitle": "BootstrapVue",
+      "url": "https://bootstrap-vue.org/docs/components",
+      "authors": [
+        {
+          "id": "693b9bf0-ca9a-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "BootstrapVue",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "28"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Are you doing BDD? Or are you just using Cucumber?",
+      "url": "https://cucumber.io/blog/bdd/single-source-of-truth/",
+      "authors": [
+        {
+          "id": "b0943a20-ca9a-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "A.",
+          "particle": "",
+          "family": "Hellesøy",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2015",
+          "month": "03",
+          "day": "24"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "09"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Introduction to BDD with Cucumber for Java",
+      "url": "https://www.slideshare.net/sebrose/introduction-to-bdd-with-cucumber-for-java",
+      "authors": [
+        {
+          "id": "44ef8170-ca9b-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "S.",
+          "particle": "",
+          "family": "Rose",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2015",
+          "month": "10",
+          "day": "26"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "07"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "8 Best Behavior Driven Development (BDD) Tools and Testing Frameworks",
+      "url": "https://www.softwaretestinghelp.com/behavior-driven-development-bdd-tools/",
+      "authors": [
+        {
+          "id": "2877af70-ca9d-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "SoftwareTestingHelp",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2020",
+          "month": "06",
+          "day": "30"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "07"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "10 Best Open Source Test Automation Frameworks for Every Purpose",
+      "containerTitle": "dzone.com",
+      "url": "https://dzone.com/articles/10-best-open-source-test-automation-frameworks-for",
+      "authors": [
+        {
+          "id": "f4a34b40-ca9d-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "A.",
+          "particle": "",
+          "family": "Kazeeva",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2018",
+          "month": "03",
+          "day": "14"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "07"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "What's So Great About JUnit 5?",
+      "containerTitle": "TestProject",
+      "url": "https://blog.testproject.io/2019/02/26/junit-5/",
+      "authors": [
+        {
+          "id": "29dcc840-ca9e-11ea-ac58-336f92b7b353",
+          "type": "person",
+          "title": "",
+          "initials": "",
+          "given": "Y.",
+          "particle": "",
+          "family": "Flenner",
+          "suffix": "",
+          "screenName": "",
+          "order": 1,
+          "role": "author",
+          "isAdvanced": false,
+          "name": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "2020",
+          "month": "02",
+          "day": "26"
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "07"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": false
+      },
+      "form": "webpage"
+    },
+    {
+      "type": "webpage",
+      "title": "Reporting - Cucumber Documentation",
+      "url": "https://cucumber.io/docs/cucumber/reporting/",
+      "authors": [
+        {
+          "id": "c0b9b160-ca9e-11ea-ac58-336f92b7b353",
+          "type": "organization",
+          "name": "Cucumber",
+          "screenName": "",
+          "role": "author",
+          "order": 1,
+          "title": "",
+          "given": "",
+          "particle": "",
+          "family": "",
+          "suffix": "",
+          "isAdvanced": false,
+          "initials": ""
+        }
+      ],
+      "issued": [
+        {
+          "year": "",
+          "month": "",
+          "day": ""
+        }
+      ],
+      "accessed": [
+        {
+          "year": "2020",
+          "month": "07",
+          "day": "07"
+        }
+      ],
+      "meta": {
+        "hasNoAuthor": false,
+        "hasNoIssued": true
+      },
+      "form": "webpage"
+    }
+  ]
+}

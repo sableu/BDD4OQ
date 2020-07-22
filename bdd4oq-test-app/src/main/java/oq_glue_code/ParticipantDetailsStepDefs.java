@@ -1,9 +1,11 @@
 package oq_glue_code;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import static oq_glue_code.TestContext.participant;
 import static oq_glue_code.TestContext.webDriver;
@@ -85,5 +87,25 @@ public class ParticipantDetailsStepDefs {
     @Then("{string}'s baseline weight entry should be displayed on that page")
     public void baselineWeightEntryShouldBeDisplayedOnThatPage(String firstName) {
         assertThat(webDriver().findElement(By.id("weight")).getAttribute("value"), is(participantBaselineWeightMeasurement.weight.toString()));
+    }
+
+    @Given("{string} did not give her consent so far")
+    public void did_not_give_her_consent_so_far(String firstName) {
+        webDriver().findElement(By.xpath("//*[@id=\"participantTable\"]/tbody/tr")).click();
+        assertThat(webDriver().findElement(By.id("participantConsent")).isSelected(), is(false));
+    }
+
+    @When("Patricia registers that {string} gave her consent")
+    public void patricia_registers_that_gave_her_consent(String string) {
+        webDriver().findElement(By.xpath("//*[@for=\"participantConsent\"]")).click();
+        webDriver().findElement(By.id("updateConsent")).click();
+    }
+    @When("she displays {string}'s details")
+    public void she_displays_s_details(String string) {
+        webDriver().navigate().refresh();
+    }
+    @Then("Patricia should see on the participant detail page that the consent was given.")
+    public void patricia_should_see_on_the_participant_detail_page_that_the_consent_was_given() {
+        assertThat(webDriver().findElement(By.id("participantConsent")).isSelected(), is(true));
     }
 }
